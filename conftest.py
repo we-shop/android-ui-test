@@ -35,7 +35,7 @@ prefs = {"download.default_directory": os.getcwd() + "/"}
 
 
 # fetching capabilities
-json_f = open(os.getcwd() + '/android/android_caps.json') # travis CI
+json_f = open(os.getcwd() + '/android_caps.json') # travis CI
 #json_f = open('android_caps.json') # local
 desired_cap = json.load(json_f)
 json_f.close()
