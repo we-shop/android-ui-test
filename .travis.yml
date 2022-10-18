@@ -1,0 +1,20 @@
+--- 
+branches: 
+  only: 
+    - feature/poc
+    - develop
+install: 
+  - "pip install -r requirements.txt"
+language: python
+notifications: 
+  email: 
+    on_failure: always
+    on_success: never
+    recipients: 
+      - abavabaraba@gmail.com
+python: 
+  - "3.8"
+  - "3.9"
+  - "3.10"
+script: 
+  - "pytest test_travis.py"

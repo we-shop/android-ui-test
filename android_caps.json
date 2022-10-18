@@ -1,0 +1,12 @@
+{
+    "device": "Samsung Galaxy A51",
+    "os_version": "10.0",
+    "project": "First Python project2",
+    "build": "browserstack-build-android",
+    "name": "Android_tests",
+    "app_url": "bs://d2e53d8411b48c4ca19e25dd2902acb5337e1a91",
+    "appium:resetKeyboard": true,
+    "autoGrantPermissions": true,
+    "appium:unicodeKeyboard": true,
+    "appium:noReset:": false
+}
