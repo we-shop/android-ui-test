@@ -1,3 +1,6 @@
 .env
 report.html
-__pycache__
+
+ui_page_objects/__pycache__/
+locators/__pycache__/
+__pycache__/
