@@ -34,7 +34,6 @@ ACCESS_KEY = credentials.access_key
 SECRET_KEY = credentials.secret_key
 SESSION_TOKEN = credentials.token
 
-print(SESSION_TOKEN)
 
 # AWS boto session init + credentials
 session = boto3.Session( 
@@ -182,7 +181,7 @@ def check_android_app_tags(path_to_file, tag_set):
 		print("Download started!")
 		# download app file
 		download_android_app(path_to_file)
-		################################################################uploaded_bs_file_data = upload_app_to_BS()
+		uploaded_bs_file_data = upload_app_to_BS()
 		
 		# update tags	
 		response = client.put_object_tagging(
