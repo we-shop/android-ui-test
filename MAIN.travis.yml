@@ -14,6 +14,6 @@ notifications:
 python: 
   - "3.9"
 script: 
-  - "python aws_android.py"
+  - "pytest PARTtest_uat.py"
 after_script:
   - "sleep 1"
