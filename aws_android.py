@@ -34,6 +34,8 @@ ACCESS_KEY = credentials.access_key
 SECRET_KEY = credentials.secret_key
 SESSION_TOKEN = credentials.token
 
+print(SESSION_TOKEN)
+
 # AWS boto session init + credentials
 session = boto3.Session( 
 		 aws_access_key_id=ACCESS_KEY, 
