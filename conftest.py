@@ -45,7 +45,7 @@ json_f.close()
 def selenium(request):
     #webdriver
     selenium = webdriver.Remote(
-      command_executor='https://mike_M1rIkt:x2YybDe3qVzH1M6tUpM4@hub-cloud.browserstack.com/wd/hub',
+      command_executor='https://mishaa_uqQmsb:ysB7toT5j5V2zNz4ywRE@hub-cloud.browserstack.com/wd/hub',
       desired_capabilities=desired_cap)
       # mikesmiq_u1xngQ  Y96JA9zbr6YLA6su8KRw
     yield selenium

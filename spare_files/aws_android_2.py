@@ -26,6 +26,10 @@ parsed_json = dict(eval(t))
 print(parsed_json)
 print(type(parsed_json))
 
+# to JSON
+to_json = json.dumps(parsed_json, indent = 4)
 
+print(to_json)
+print(type(to_json))
 ############################
 
