@@ -23,6 +23,7 @@ t = ast.literal_eval(json.dumps(s)) #json.loads(s)
 
 parsed_json = dict(eval(t))
 
+print(parsed_json)
 print(type(parsed_json))
 
 
