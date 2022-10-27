@@ -16,6 +16,6 @@ python:
 script: 
   - "python PARTtest_uat.py"
 before_script:
-  - "python aws_android.py"
+  - "pytest aws_android.py"
 after_script:
   - "sleep 1"
