@@ -108,9 +108,10 @@ class ProductDetailPage:
 		time.sleep(2) # obligatory
 		print(GET_PRODUCT_NAME)
 		print("####")
+		list_of_all_items_inside_wishlist = elems_xpath(driver, LIST_OF_ITEMS_INSIDE_WISHLIST)
+
 		for i in list_of_all_items_inside_wishlist:
 			print(i.text)
-		list_of_all_items_inside_wishlist = elems_xpath(driver, LIST_OF_ITEMS_INSIDE_WISHLIST)
 
 		# try/except block to avoid unknown java issue
 		try:
