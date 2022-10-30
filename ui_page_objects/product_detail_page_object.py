@@ -105,13 +105,10 @@ class ProductDetailPage:
 		except:
 			pass
 
-		time.sleep(2) # obligatory
-		print(GET_PRODUCT_NAME)
-		print("####")
+		time.sleep(1) # obligatory
+		#print(GET_PRODUCT_NAME) # debug
+		#print("####") # debug
 		list_of_all_items_inside_wishlist = elems_xpath(driver, LIST_OF_ITEMS_INSIDE_WISHLIST)
-
-		for i in list_of_all_items_inside_wishlist:
-			print(i.text)
 
 		# try/except block to avoid unknown java issue
 		try:

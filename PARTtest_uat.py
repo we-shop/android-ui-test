@@ -3,30 +3,30 @@ import os
 
 # LIST OF TESTS
 	# done
-def atest_login_and_logout(login_model, debug_model, selenium):
+def test_login_and_logout(login_model, debug_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_with_assert(selenium)
 	login_model.logout(selenium)
 
 	# done
-def atest_login_with_incorrect_credentials(login_model, debug_model, selenium):
+def test_login_with_incorrect_credentials(login_model, debug_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_with_incorrect_creds(selenium)
 
 	# done
-def atest_search_request_and_clear_field(login_model, debug_model, search_model, selenium):
+def test_search_request_and_clear_field(login_model, debug_model, search_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only(selenium)
 	search_model.search_and_clear_field(selenium)
 
 	# done
-def atest_add_and_remove_product_from_wishlist(login_model, debug_model, search_model, product_page_model, selenium):
+def test_add_and_remove_product_from_wishlist(login_model, debug_model, search_model, product_page_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only(selenium)
 	search_model.search_product_and_open_detail_page(selenium)
 	product_page_model.add_product_to_wishlist(selenium)
 
-
+	# done
 def test_add_product_to_wishlist_and_check_in_profile(login_model, debug_model, search_model, product_page_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only(selenium)
@@ -34,30 +34,31 @@ def test_add_product_to_wishlist_and_check_in_profile(login_model, debug_model, 
 	product_page_model.add_product_to_wishlist_and_check_in_profile(selenium)
 
 	# done
-def atest_open_product_website(debug_model, login_model, product_page_model, selenium):
+def test_open_product_website(debug_model, login_model, product_page_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only(selenium)
 	product_page_model.open_product_website(selenium)
 
 	# done
-def atest_add_product_to_post(debug_model, login_model, product_page_model, selenium):
+def test_add_product_to_post(debug_model, login_model, product_page_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only(selenium)
 	product_page_model.add_product_to_post(selenium)
 
 	# done
-def atest_add_product_to_question(debug_model, login_model, product_page_model, selenium):
+def test_add_product_to_question(debug_model, login_model, product_page_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only(selenium)
 	product_page_model.add_product_to_question(selenium)
 
 	# done
-def atest_profile_check_followers_and_followings_count(login_model, debug_model, profile_model, selenium):
+def test_profile_check_followers_and_followings_count(login_model, debug_model, profile_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_go_to_profile(selenium)
 	profile_model.followings_followers_count(selenium)
 
-def atest_profile_follow_unfollow_followers_following_tabs(login_model, debug_model, profile_model, selenium):
+	# done
+def test_profile_follow_unfollow_followers_following_tabs(login_model, debug_model, profile_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_go_to_profile(selenium)
 	profile_model.following_count_manipulations_in_profile(selenium)
