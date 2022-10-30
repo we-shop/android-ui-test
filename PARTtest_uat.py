@@ -2,12 +2,14 @@ import pytest
 import os
 
 # LIST OF TESTS
-def test_login_and_logout(login_model, debug_model, selenium):
+	# done
+def atest_login_and_logout(login_model, debug_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_with_assert(selenium)
 	login_model.logout(selenium)
 
-def test_login_with_incorrect_credentials(login_model, debug_model, selenium):
+	# done
+def atest_login_with_incorrect_credentials(login_model, debug_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_with_incorrect_creds(selenium)
 
@@ -28,22 +30,26 @@ def test_add_product_to_wishlist_and_check_in_profile(login_model, debug_model, 
 	search_model.search_product_and_open_detail_page(selenium)
 	product_page_model.add_product_to_wishlist_and_check_in_profile(selenium)
 
-def test_open_product_website(debug_model, login_model, product_page_model, selenium):
+	# done
+def atest_open_product_website(debug_model, login_model, product_page_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only(selenium)
 	product_page_model.open_product_website(selenium)
 
-def test_add_product_to_post(debug_model, login_model, product_page_model, selenium):
+	# done
+def atest_add_product_to_post(debug_model, login_model, product_page_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only(selenium)
 	product_page_model.add_product_to_post(selenium)
 
-def test_add_product_to_question(debug_model, login_model, product_page_model, selenium):
+	# done
+def atest_add_product_to_question(debug_model, login_model, product_page_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only(selenium)
 	product_page_model.add_product_to_question(selenium)
 
-def test_profile_check_followers_and_followings_count(login_model, debug_model, profile_model, selenium):
+	# done
+def atest_profile_check_followers_and_followings_count(login_model, debug_model, profile_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_go_to_profile(selenium)
 	profile_model.followings_followers_count(selenium)

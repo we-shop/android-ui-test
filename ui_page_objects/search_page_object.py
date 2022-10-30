@@ -26,7 +26,7 @@ class SearchPage:
 		# verify that we have search result
 		first_item_in_search_result_text = el_xpath(driver, FIRST_ITEM_NAME_SEARCH).text
 
-		assert "adidas" in first_item_in_search_result_text.lower()
+		assert "Adidas".lower() in first_item_in_search_result_text.lower()
 
 		# clear search result
 		clear_field = id_click(driver, CLEAR_SEARCH_X_BTN)
@@ -36,7 +36,7 @@ class SearchPage:
 
 		# asserting recent search name
 		recent_search_item_text = el_id(driver, RECENT_SEARCH_ITEM_TEXT).text
-		assert recent_search_item_text.lower() == "adidas"
+		assert recent_search_item_text.lower() == "Adidas".lower()
 
 	def search_product_and_open_detail_page(self, driver):
 		# search request
@@ -48,7 +48,7 @@ class SearchPage:
 		# verify that we have search result
 		first_item_in_search_result_text = el_xpath(driver, FIRST_ITEM_NAME_SEARCH).text
 
-		assert "Samsung" in first_item_in_search_result_text
+		assert "Samsung".lower() in first_item_in_search_result_text.lower()
 
 		# go to product detail page
 		first_item_in_search_result_click = xpath_click(driver, FIRST_ITEM_NAME_SEARCH)

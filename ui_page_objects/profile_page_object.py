@@ -246,6 +246,8 @@ class ProfilePage:
 		click_on_profile_footer_item = acc_id_click(driver, PROFILE_FOOTER_MENU)
 		re_reading_followings_count = int(el_id(driver, FOLLOWINGS_COUNT).text)
 
+		print(re_reading_followings_count)
+
 		# assertions
 		if follow_clicked > 0:
 			assert re_reading_followings_count == (profile_following + follow_clicked)
