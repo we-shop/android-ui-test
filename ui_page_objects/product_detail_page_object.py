@@ -93,7 +93,7 @@ class ProductDetailPage:
 			assert toast_msg_wishlist_added == "Product added to your wishlist!"
 			
 		# going back to profile
-		click_on_back_btn = acc_id_click(driver, BACK_BTN)
+		click_on_back_btn = driver.back() #acc_id_click(driver, BACK_BTN)
 		profile_footer_icon_click = id_click(driver, PROFILE_FOOTER_ITEM)
 		wishlist_profile_click = acc_id_click(driver, WISHLIST_PROFILE_CLICK)
 

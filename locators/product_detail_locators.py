@@ -4,7 +4,7 @@ from appium.webdriver.common.mobileby import MobileBy
 # LIST OF LOCATORS FOR SEARCH PAGE MODEL
 WISHLIST_STAR_BUTTON = "com.socialsuperstore.feature_product_detail:id/saveToWishlistBtn"
 ADD_BUTTON_IN_WISHLIST = "//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.Button"
-BACK_BTN = "Navigate up"
+BACK_BTN = "Navigate up" # new (30102022) # com.socialsuperstore.feature_product_detail:id/toolbar and /android.widget.ImageButton
 PRODUCT_NAME_TITLE =  "com.socialsuperstore.feature_product_detail:id/productName" #"com.socialsuperstore:id/toolbarText"
 POST_HEAD_TITLE_YOUR_PRODUCT = '//*[contains(@resource-id, "com.socialsuperstore:id/toolbar")]/android.widget.TextView'
 PRODUCT_NAME_PRICE_BLOCK = "com.socialsuperstore.feature_product_detail:id/productName"

@@ -81,7 +81,7 @@ class ProfilePage:
 		click_on_save_changes_btn = id_click(driver, PROFILE_EDIT_SAVE_CHANGES_BTN)
 		
 		# refresh manupulation to see new profile data
-		click_on_back_btn = acc_id_click(driver, BACK_BTN)
+		click_on_back_btn = driver.back() #acc_id_click(driver, BACK_BTN)
 		click_on_footer_home_btn = acc_id_click(driver, FOOTER_ITEM_HOME)
 		click_on_footer_profile_btn = acc_id_click(driver, FOOTER_ITEM_PROFILE)
 
@@ -246,7 +246,7 @@ class ProfilePage:
 		click_on_profile_footer_item = acc_id_click(driver, PROFILE_FOOTER_MENU)
 		re_reading_followings_count = int(el_id(driver, FOLLOWINGS_COUNT).text)
 
-		print(re_reading_followings_count)
+		#print(re_reading_followings_count)
 
 		# assertions
 		if follow_clicked > 0:
