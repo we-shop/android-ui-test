@@ -162,7 +162,7 @@ def upload_app_to_BS():
 	files = {'file': (LATEST_FILE_ANDROID, open(LATEST_FILE_ANDROID, 'rb'))}
 	response = requests.post('https://api-cloud.browserstack.com/app-automate/upload', 
 				files=files, 
-				auth=('mishaa_uqQmsb', 'ysB7toT5j5V2zNz4ywRE'))
+				auth=('mishatt_TZ84Lg', 'fcd9xqWeoVZUgpeZzz5t'))
 
 
 	return json.loads(response.text)["app_url"]
