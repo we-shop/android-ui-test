@@ -30,6 +30,9 @@ PASSWORD_INT = os.getenv("PASSWORD_INT")
 LOGIN_INT_NEW = os.getenv("LOGIN_INT_NEW")
 PASSWORD_INT_NEW = os.getenv("PASSWORD_INT_NEW")
 
+# BS CREDENTIALS
+BS_LOGIN = os.getenv("BS_LOGIN")
+BS_SECRET = os.getenv("BS_SECRET")
 
 prefs = {"download.default_directory": os.getcwd() + "/"}
 
@@ -45,9 +48,8 @@ json_f.close()
 def selenium(request):
     #webdriver
     selenium = webdriver.Remote(
-      command_executor='https://mishatt_TZ84Lg:fcd9xqWeoVZUgpeZzz5t@hub-cloud.browserstack.com/wd/hub',
+      command_executor=f'https://{BS_LOGIN}:{BS_SECRET}@hub-cloud.browserstack.com/wd/hub',
       desired_capabilities=desired_cap)
-      # mikesmiq_u1xngQ  Y96JA9zbr6YLA6su8KRw
     yield selenium
     selenium.quit() # marking test is finished for Browserstack
     #selenium.close_app() # making app in background, because of pre-sets app restoring in fresh state o next launch

@@ -27,6 +27,10 @@ pp = pprint.PrettyPrinter(indent=4)
 # BS_USERNAME = os.getenv("BS_USERNAME")
 # BS_ACCESS_KEY = os.getenv("BS_ACCESS_KEY")
 
+# BS CREDENTIALS
+BS_LOGIN = os.getenv("BS_LOGIN")
+BS_SECRET = os.getenv("BS_SECRET")
+
 # CREDS
 credentials = boto3.Session().get_credentials()
 
@@ -162,7 +166,7 @@ def upload_app_to_BS():
 	files = {'file': (LATEST_FILE_ANDROID, open(LATEST_FILE_ANDROID, 'rb'))}
 	response = requests.post('https://api-cloud.browserstack.com/app-automate/upload', 
 				files=files, 
-				auth=('mishatt_TZ84Lg', 'fcd9xqWeoVZUgpeZzz5t'))
+				auth=(BS_LOGIN, BS_SECRET))
 
 
 	return json.loads(response.text)["app_url"]
