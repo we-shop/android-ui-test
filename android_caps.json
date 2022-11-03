@@ -4,7 +4,7 @@
     "project": "First Python project2",
     "build": "browserstack-build-android",
     "name": "Android_tests",
-    "app_url": "test",
+    "app_url": "testx",
     "appium:resetKeyboard": true,
     "autoGrantPermissions": true,
     "appium:unicodeKeyboard": true,
