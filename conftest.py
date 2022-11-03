@@ -56,7 +56,8 @@ def selenium(request):
     yield selenium
     print(get_session_id)
     print("#####")
-    selenium.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed", "reason": "test"}}')
+    x = "passed!"
+    selenium.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed", "reason": {}}}'.format(x))
     print(type(get_session_id))
     selenium.quit() # marking test is finished for Browserstack
     #selenium.close_app() # making app in background, because of pre-sets app restoring in fresh state o next launch
