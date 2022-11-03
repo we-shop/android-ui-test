@@ -64,7 +64,7 @@ import os
 # 	profile_model.following_count_manipulations_in_profile(selenium)
 
 	# done
-def test_profile_follow_few_users_using_search(login_model, debug_model, profile_model, selenium):
+def atest_profile_follow_few_users_using_search(login_model, debug_model, profile_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_go_to_profile(selenium)
 	profile_model.follow_few_users(selenium)
@@ -80,19 +80,19 @@ def QQQtest_profile_deactivate_account_flow(login_model, debug_model, profile_mo
 	profile_model.deactivate_account_and_login_after(selenium)
 
 	# done
-def test_profile_info_pages(login_model, debug_model, profile_model, selenium):
+def atest_profile_info_pages(login_model, debug_model, profile_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_go_to_profile(selenium)
 	profile_model.info_pages_check(selenium)
 	profile_model.customer_support_page_check(selenium)
 
 	# done
-def test_profile_about_version_check(debug_model, profile_model, selenium):
+def atest_profile_about_version_check(debug_model, profile_model, selenium):
 	debug_model.switch_to_uat_version_check(selenium)
 	profile_model.about_version_check(selenium)
 
 	# done
-def test_post_create_new_product(debug_model, login_model, post_model, selenium):
+def atest_post_create_new_product(debug_model, login_model, post_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only(selenium)
 	post_model.recommend_product(selenium)
@@ -104,13 +104,13 @@ def QQQtest_post_create_new_product_edit_delete(debug_model, login_model, post_m
 	post_model.product_edit_and_deletion(selenium)
 
 	# done
-def test_self_post_like_and_comment_check(debug_model, login_model, post_model, selenium):
+def atest_self_post_like_and_comment_check(debug_model, login_model, post_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_go_to_profile(selenium)
 	post_model.comment_and_like_self_post(selenium)
 
 	# done
-def test_self_post_comment_edit_and_delete(debug_model, login_model, post_model, selenium):
+def atest_self_post_comment_edit_and_delete(debug_model, login_model, post_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only(selenium)
 	post_model.recommend_product(selenium)
