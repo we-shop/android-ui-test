@@ -50,7 +50,12 @@ def selenium(request):
     selenium = webdriver.Remote(
       command_executor=f'https://{BS_LOGIN}:{BS_SECRET}@hub-cloud.browserstack.com/wd/hub',
       desired_capabilities=desired_cap)
+
+    get_session_id = driver.execute_script('browserstack_executor: {"action": "getSessionDetails"}')
+    print(get_session_id)
     yield selenium
+    print(get_session_id)
+    print(type(get_session_id))
     selenium.quit() # marking test is finished for Browserstack
     #selenium.close_app() # making app in background, because of pre-sets app restoring in fresh state o next launch
     clear_data_from_temp_file() # clearing data in temp_data.txt
