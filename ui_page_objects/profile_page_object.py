@@ -108,14 +108,19 @@ class ProfilePage:
 		# profie photo change (open > cancel flow)
 		click_on_profile_photo_change_btn = id_click(driver, PROFILE_EDIT_PHOTO_CHANGE_ICON)
 		click_on_take_photo_in_window = xpath_click(driver, PROFILE_EDIT_PHOTO_CHANGE_TAKE_PHOTO)
-		time.sleep(3) #obligatory wait to open phone camera
+		time.sleep(2.5) #obligatory wait to open phone camera
 		driver.back()
+		time.sleep(1.5)
 		toast_error_msg_get = get_toast_msg(driver)
-		expected_message_one = "Sorry, an error occurred while trying to pick up the image. Please try again or pick up a different image."
-		expected_message_two = "Media unrecognised. Please select a valid image or video and try again."
+		expected_message = "Something went wrong trying to select this image."
+		#expected_message_one = "Sorry, an error occurred while trying to pick up the image. Please try again or pick up a different image."
+		#expected_message_two = "Media unrecognised. Please select a valid image or video and try again."
 
-		# checking expected error message (2 possible variants)
-		assert toast_error_msg_get == expected_message_one or expected_message_two == expected_message_two
+
+		# checking expected error message (2 possible variants) 
+		# OLD
+		#assert toast_error_msg_get == expected_message_one or expected_message_two == expected_message_two
+		assert toast_error_msg_get == expected_message
 
 		# editing first/last name
 		edit_first_name_field = xpath_keys(driver, PROFILE_EDIT_FIRST_NAME_FIELD, RANDOM_FIRST_NAME)
