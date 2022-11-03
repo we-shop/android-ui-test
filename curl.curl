@@ -1,0 +1,3 @@
+curl -u "mishatt_TZ84Lg:fcd9xqWeoVZUgpeZzz5t" -X PUT -H "Content-Type: application/json" \
+-d "{\"status\":\"failed\", \"reason\":\"test\"}" \
+ https://api.browserstack.com/automate/sessions/258578465c37a91016e539c672ae52d33264b635.json
