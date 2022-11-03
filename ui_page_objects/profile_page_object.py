@@ -110,7 +110,7 @@ class ProfilePage:
 		click_on_take_photo_in_window = xpath_click(driver, PROFILE_EDIT_PHOTO_CHANGE_TAKE_PHOTO)
 		time.sleep(3) #obligatory wait to open phone camera
 		driver.back()
-		time.sleep(0.5)
+		time.sleep(2.5)
 		toast_error_msg_get = get_toast_msg(driver)
 		expected_message = "Something went wrong trying to select this image."
 		#expected_message_one = "Sorry, an error occurred while trying to pick up the image. Please try again or pick up a different image."
