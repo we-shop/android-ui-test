@@ -51,7 +51,7 @@ def selenium(request):
       command_executor=f'https://{BS_LOGIN}:{BS_SECRET}@hub-cloud.browserstack.com/wd/hub',
       desired_capabilities=desired_cap)
 
-    get_session_id = driver.execute_script('browserstack_executor: {"action": "getSessionDetails"}')
+    get_session_id = selenium.execute_script('browserstack_executor: {"action": "getSessionDetails"}')
     print(get_session_id)
     yield selenium
     print(get_session_id)
