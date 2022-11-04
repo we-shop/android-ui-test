@@ -78,7 +78,7 @@ def selenium(request):
     yield selenium
     #print(get_session_id)
     print("#####")
-    print(session.results)
+    #print(session.results)
 
     print("#####")
     #x = "passed!"
