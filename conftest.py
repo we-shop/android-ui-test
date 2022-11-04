@@ -97,15 +97,22 @@ def selenium(request):
 
     print(dir(request.node))
     print("###add_report_section")
-    print(request.node.add_report_section)
-    print(request.node._report_sections)
+    print(request.node.add_report_section())
+    print(request.node._report_sections())
 
     print("ihook")
     print(request.node.ihook)
+    print(dir(request.node.ihook))
 
     print("reportinfo")
     print(request.node.ihook)
 
+    print("Get env")
+    print(os.getenv("PYTEST_CURRENT_TEST"))
+
+    print("session _____")
+    print(request.session)
+    print(dir(request.session))
     #print("#####")
     #x = "passed!"
     #selenium.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed", "reason": "fqw"}}'.format(x))
