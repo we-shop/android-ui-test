@@ -120,6 +120,7 @@ def selenium(request):
     selenium.quit() # marking test is finished for Browserstack
     #selenium.close_app() # making app in background, because of pre-sets app restoring in fresh state o next launch
     clear_data_from_temp_file() # clearing data in temp_data.txt
+    # ###
 
 
 # can be taken from caps.json
