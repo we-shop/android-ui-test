@@ -96,6 +96,16 @@ def selenium(request):
     print("#########")
 
     print(dir(request.node))
+    print("###add_report_section")
+    print(request.node.add_report_section)
+    print(request.node._report_sections)
+
+    print("ihook")
+    print(request.node.ihook)
+
+    print("reportinfo")
+    print(request.node.ihook)
+
     #print("#####")
     #x = "passed!"
     #selenium.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed", "reason": "fqw"}}'.format(x))
