@@ -57,9 +57,17 @@ def pytest_runtest_makereport(item, call):
     if result.when == 'call':
         item.session.results[item] = result
 
+
+def pytest_sessionfinish(session, exitstatus):
+    print()
+    print('run status code:', exitstatus)
+    passed_amount = sum(1 for result in session.results.values() if result.passed)
+    failed_amount = sum(1 for result in session.results.values() if result.failed)
+    print(f'there are {passed_amount} passed and {failed_amount} failed tests')        
+
 # # Customizing appium driver for Browserstack
 @pytest.fixture(autouse=True)
-def selenium(request, session):
+def selenium(request):
     #webdriver
     selenium = webdriver.Remote(
       command_executor=f'https://{BS_LOGIN}:{BS_SECRET}@hub-cloud.browserstack.com/wd/hub',
