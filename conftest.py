@@ -88,27 +88,27 @@ def selenium(request):
     #print(get_session_id)
     #print("#####")
     #print(session.results)
-    print(request.node.name)
-    print("#########")
+    # print(request.node.name)
+    # print("#########")
 
-    print(dir(request))
+    # print(dir(request))
 
-    print("#########")
+    # print("#########")
 
-    print(dir(request.node))
-    print("###add_report_section")
-    #print(request.node.add_report_section())
-    print(request.node._report_sections)
+    # print(dir(request.node))
+    # print("###add_report_section")
+    # #print(request.node.add_report_section())
+    # print(request.node._report_sections)
 
-    print("ihook")
-    print(request.node.ihook)
-    print(dir(request.node.ihook))
+    # print("ihook")
+    # print(request.node.ihook)
+    # print(dir(request.node.ihook))
 
-    print("reportinfo")
-    print(request.node.ihook)
+    # print("reportinfo")
+    # print(request.node.ihook)
 
-    print("Get env")
-    print(os.getenv("PYTEST_CURRENT_TEST"))
+    # print("Get env")
+    # print(os.getenv("PYTEST_CURRENT_TEST"))
 
     print("session _____")
     print(request.session.items)
