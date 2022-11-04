@@ -111,7 +111,15 @@ def selenium(request):
     print(os.getenv("PYTEST_CURRENT_TEST"))
 
     print("session _____")
-    print(request.session)
+    print(request.session.items)
+    print(request.session.exitstatus)
+    print(request.session.pytest_collectreport)
+    print(request.session.pytest_runtest_logreport)
+    print(request.session.repr_failure)
+    print(request.session.results)
+    print(request.session.session)
+    print(request.session.setup)
+    print(request.session.testsfailed)
     print(dir(request.session))
     #print("#####")
     #x = "passed!"
