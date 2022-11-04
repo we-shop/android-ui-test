@@ -59,7 +59,7 @@ def pytest_runtest_makereport(item, call):
 
 # # Customizing appium driver for Browserstack
 @pytest.fixture(autouse=True)
-def selenium(request):
+def selenium(request, session):
     #webdriver
     selenium = webdriver.Remote(
       command_executor=f'https://{BS_LOGIN}:{BS_SECRET}@hub-cloud.browserstack.com/wd/hub',
