@@ -57,18 +57,21 @@ def pytest_runtest_makereport(item, call):
     if result.when == 'call':
         item.session.results[item] = result
 
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def rd(session):
+    return session.results.values()
 
-def pytest_sessionfinish(session, exitstatus):
-    print()
-    print('run status code:', exitstatus)
-    passed_amount = sum(1 for result in session.results.values() if result.passed)
-    failed_amount = sum(1 for result in session.results.values() if result.failed)
-    print(f'there are {passed_amount} passed and {failed_amount} failed tests')
-    print("##########")
-    print(session.results)
-    print("##########")
-    session.results.values()
-    print("##########")
+# def pytest_sessionfinish(session, exitstatus):
+#     print()
+#     print('run status code:', exitstatus)
+#     passed_amount = sum(1 for result in session.results.values() if result.passed)
+#     failed_amount = sum(1 for result in session.results.values() if result.failed)
+#     print(f'there are {passed_amount} passed and {failed_amount} failed tests')
+#     print("##########")
+#     print(session.results)
+#     print("##########")
+#     session.results.values()
+#     print("##########")
 
 # # Customizing appium driver for Browserstack
 @pytest.fixture(autouse=True)
@@ -79,12 +82,20 @@ def selenium(request):
       desired_capabilities=desired_cap)
 
     get_session_id = selenium.execute_script('browserstack_executor: {"action": "getSessionDetails"}')
+
     #print(get_session_id)
     yield selenium
     #print(get_session_id)
     #print("#####")
     #print(session.results)
+    print(request.node.name)
+    print("#########")
 
+    print(dir(request))
+
+    print("#########")
+
+    print(dir(request.node))
     #print("#####")
     #x = "passed!"
     #selenium.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed", "reason": "fqw"}}'.format(x))
