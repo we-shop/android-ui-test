@@ -97,7 +97,7 @@ def selenium(request):
 
     print(dir(request.node))
     print("###add_report_section")
-    print(request.node.add_report_section())
+    #print(request.node.add_report_section())
     print(request.node._report_sections())
 
     print("ihook")
