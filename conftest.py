@@ -43,6 +43,20 @@ json_f = open(os.getcwd() + '/android_caps.json') # travis CI
 desired_cap = json.load(json_f)
 json_f.close()
 
+
+# getting test result block
+def pytest_sessionstart(session):
+    session.results = dict()
+
+
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    result = outcome.get_result()
+
+    if result.when == 'call':
+        item.session.results[item] = result
+
 # # Customizing appium driver for Browserstack
 @pytest.fixture(autouse=True)
 def selenium(request):
@@ -54,11 +68,14 @@ def selenium(request):
     get_session_id = selenium.execute_script('browserstack_executor: {"action": "getSessionDetails"}')
     #print(get_session_id)
     yield selenium
-    print(get_session_id)
+    #print(get_session_id)
     print("#####")
-    x = "passed!"
-    selenium.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed", "reason": {}}}'.format(x))
-    print(type(get_session_id))
+    print(session.results)
+
+    print("#####")
+    #x = "passed!"
+    #selenium.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed", "reason": "fqw"}}'.format(x))
+    #print(type(get_session_id))
     selenium.quit() # marking test is finished for Browserstack
     #selenium.close_app() # making app in background, because of pre-sets app restoring in fresh state o next launch
     clear_data_from_temp_file() # clearing data in temp_data.txt
