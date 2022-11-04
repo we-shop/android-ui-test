@@ -112,8 +112,15 @@ def selenium(request):
     print(dir(request.session))
     print("##########")
 
-    os.environ["DEBUSSY"] = "1"
-    print(os.getenv("DEBUSSY"))
+    # os.environ["DEBUSSY"] = "1"
+    # print(os.getenv("DEBUSSY"))
+    print("request node")
+    print(request.node)
+
+    print("##########")
+    print("request node request.node.rep_call.failed")
+    print(request.node.rep_call.failed)
+    print(request.node.rep_call)
 
     #print("#####")
     #x = "passed!"
