@@ -154,7 +154,21 @@ def selenium(request):
     print("###  capstderr")
     print(request.node.rep_call.capstderr)
     
+    print("###  longreprtext")
+    print(request.node.rep_call.longreprtext)
 
+    print("###  from_item_and_call")
+    print(request.node.rep_call.from_item_and_call)
+
+    if request.node.rep_call.outcome == "passed":
+        test_status = 'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"<tr>", "reason": "<trs>"}}'.replace("<tr>", "passed").replace("<trs>", "All good!")
+    elif request.node.rep_call.outcome == "failed":
+        test_status = 'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"<tr>", "reason": "<trs>"}}'.replace("<tr>", "failed").replace("<trs>", "Test failed! Need to check!")
+    else:
+        print(f"Something wrong! Check test status {ERROR}") # may be skipped issue
+    
+
+    selenium.execute_script(test_status)
     #print("#####")
     #x = "passed!"
     #selenium.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed", "reason": "fqw"}}'.format(x))
