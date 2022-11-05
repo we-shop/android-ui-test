@@ -168,6 +168,7 @@ def selenium(request):
         print(f"Something wrong! Check test status {ERROR}") # may be skipped issue
     
 
+    # mark test as passed/failed
     selenium.execute_script(test_status)
     #print("#####")
     #x = "passed!"
