@@ -136,6 +136,25 @@ def selenium(request):
     print(dir(request.node.rep_call))
     print(request.node.rep_call.outcome)
 
+    print("###  nodeid")
+    print(request.node.rep_call.nodeid)
+
+    print("###  head_line")
+    print(request.node.rep_call.head_line)
+       
+    print("###  duration")
+    print(request.node.rep_call.duration)
+
+    print("###  capstdout")
+    print(request.node.rep_call.capstdout)
+
+    print("###  caplog")
+    print(request.node.rep_call.caplog)
+
+    print("###  capstderr")
+    print(request.node.rep_call.capstderr)
+    
+
     #print("#####")
     #x = "passed!"
     #selenium.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed", "reason": "fqw"}}'.format(x))
