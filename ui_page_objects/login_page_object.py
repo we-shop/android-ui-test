@@ -171,7 +171,7 @@ class LoginPage:
 
 	def login_with_incorrect_creds(self, driver):
 		# making login with incorrect creds
-		login_field = id_keys(driver, LOG_FIELD, "qatestqa")
+		login_field = id_keys(driver, "//*div", "qatestqa")#LOG_FIELD, "qatestqa")
 		password_field = id_keys(driver, PASS_FIELD, "qatestpassqa")
 		sign_in_btn_click = id_click(driver, SIGN_IN_BTN)
 
