@@ -13,6 +13,10 @@ from ui_page_objects.functions import *
 from dotenv import load_dotenv
 import json
 
+# needed for pytest-html report configuration
+from py.xml import html
+
+
 
 load_dotenv()
 
@@ -43,47 +47,9 @@ json_f = open(os.getcwd() + '/android_caps.json') # travis CI
 desired_cap = json.load(json_f)
 json_f.close()
 
+# BS sessuib data list
+SESSION_URLS = []
 
-# getting test result block
-# def pytest_sessionstart(session):
-#     session.results = dict()
-
-
-# @pytest.hookimpl(tryfirst=True, hookwrapper=True)
-# def pytest_runtest_makereport(item, call):
-#     outcome = yield
-#     result = outcome.get_result()
-
-#     if result.when == 'call':
-#         item.session.results[item] = result
-
-
-@pytest.hookimpl(tryfirst=True, hookwrapper=True)
-def pytest_runtest_makereport(item, call):
-    # execute all other hooks to obtain the report object
-    outcome = yield
-    rep = outcome.get_result()
-
-    # set a report attribute for each phase of a call, which can
-    # be "setup", "call", "teardown"
-
-    setattr(item, "rep_" + rep.when, rep)        
-
-# @pytest.hookimpl(tryfirst=True, hookwrapper=True)
-# def rd(session):
-#     return session.results.values()
-
-# def pytest_sessionfinish(session, exitstatus):
-#     print()
-#     print('run status code:', exitstatus)
-#     passed_amount = sum(1 for result in session.results.values() if result.passed)
-#     failed_amount = sum(1 for result in session.results.values() if result.failed)
-#     print(f'there are {passed_amount} passed and {failed_amount} failed tests')
-#     print("##########")
-#     print(session.results)
-#     print("##########")
-#     session.results.values()
-#     print("##########")
 
 # # Customizing appium driver for Browserstack
 @pytest.fixture(autouse=True)
@@ -93,74 +59,16 @@ def selenium(request):
       command_executor=f'https://{BS_LOGIN}:{BS_SECRET}@hub-cloud.browserstack.com/wd/hub',
       desired_capabilities=desired_cap)
 
-    get_session_id = selenium.execute_script('browserstack_executor: {"action": "getSessionDetails"}')
 
-    #print(get_session_id)
-    yield selenium
-    #print(get_session_id)
-    #print("#####")
-    #print(session.results)
-    # print(request.node.name)
-    # print("#########")
+    get_session_data = selenium.execute_script('browserstack_executor: {"action": "getSessionDetails"}')
+    converted_session_data = json.loads(get_session_data)
 
-    # print(dir(request))
-
-    # print("#########")
-    print("Get env")
-    print(os.getenv("PYTEST_CURRENT_TEST"))
-
-    print("session _____")
-    # print(request.session.Failed)
-    # print(request.session.CollectError)
-    # print(request.session.items)
-    # print(request.session.exitstatus)
-    # print(request.session.pytest_collectreport)
-    # print(request.session.pytest_runtest_logreport)
-    # print(request.session.repr_failure)
-    # print(request.session.results)
-    # print(request.session.session)
-    # print(request.session.setup)
-    # print(request.session.testsfailed)
-    # print(dir(request.session))
-    # print("##########")
-
-    # os.environ["DEBUSSY"] = "1"
-    # print(os.getenv("DEBUSSY"))
-    print("request node")
-    print(request.node)
-
-    print("##########")
-    print("request node request.node.rep_call.failed")
-    print(request.node.rep_call.failed)
-    print(request.node.rep_call)
-    print(dir(request.node.rep_call))
-    print(request.node.rep_call.outcome)
-
-    print("###  nodeid")
-    print(request.node.rep_call.nodeid)
-    print(dir(request.node.rep_call.nodeid))
-
-    print("###  head_line")
-    print(request.node.rep_call.head_line)
-    print(dir(request.node.rep_call.head_line))
-       
-    # print("###  duration")
-    # print(request.node.rep_call.duration)
-
-    # print("###  capstdout")
-    # print(request.node.rep_call.capstdout)
-
-    # print("###  caplog")
-    # print(request.node.rep_call.caplog)
-
-    # print("###  capstderr")
-    # print(request.node.rep_call.capstderr)
     
-    # print("###  longreprtext")
-    # print(request.node.rep_call.longreprtext)
+    BS_SESSION_URL = f"https://app-automate.browserstack.com/dashboard/v2/builds/{converted_session_data['build_hashed_id']}/sessions/{converted_session_data['hashed_id']}"
+    
+    SESSION_URLS.append(BS_SESSION_URL)
 
-    # print("###  from_item_and_call")
-    # print(request.node.rep_call.from_item_and_call)
+    yield selenium
 
     if request.node.rep_call.outcome == "passed":
         test_status = 'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"<tr>", "reason": "<trs>"}}'.replace("<tr>", "passed").replace("<trs>", f"All good! Test {request.node.rep_call.head_line} passed!")
@@ -172,15 +80,10 @@ def selenium(request):
 
     # mark test as passed/failed
     selenium.execute_script(test_status)
-    #print("#####")
-    #x = "passed!"
-    #selenium.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed", "reason": "fqw"}}'.format(x))
-    #print(type(get_session_id))
+
     selenium.quit() # marking test is finished for Browserstack
     #selenium.close_app() # making app in background, because of pre-sets app restoring in fresh state o next launch
     clear_data_from_temp_file() # clearing data in temp_data.txt
-    # ###
-    # test
 
 
 # can be taken from caps.json
@@ -210,6 +113,42 @@ def selenium(request):
 #     selenium.close_app() # making app in background, because of pre-sets app restoring in fresh state o next launch
 #     clear_data_from_temp_file() # clearing data in temp_data.txt
 
+
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    # extend pytest html plugin
+    pytest_html = item.config.pluginmanager.getplugin('html')
+
+
+    # execute all other hooks to obtain the report object
+    outcome = yield
+    report = outcome.get_result()
+
+    # set a report attribute for each phase of a call, which can
+    # be "setup", "call", "teardown"
+    setattr(item, "rep_" + report.when, report)    
+
+    extra = getattr(report, 'extra', [])
+
+    _html = f'<div><a href="{SESSION_URLS[-1]}">{SESSION_URLS[-1]}</a></div>'
+
+    if report.when == 'teardown':
+        extra.append(pytest_html.extras.html(_html))
+
+# @pytest.mark.optionalhook
+# def pytest_html_results_table_header(cells):
+#     #cells.append(html.th('LINK TO BS REPORT'))
+#     cells.insert(4, html.th("LINK TO BS REPORT"))
+
+# #@pytest.hookimpl(trylast=True)
+# @pytest.mark.optionalhook
+# def pytest_html_results_table_row(report, cells):
+#     #cells.append(html.td(BS_SESSION_URL))
+#     #pytest_html = item.config.pluginmanager.getplugin('html')
+
+#     if report.when == 'teardown':
+#         cells.insert(4, html.td(SESSION_URLS[-1]))
+#         #extra.append(pytest_html.extras.html(_html))
 
 
 
