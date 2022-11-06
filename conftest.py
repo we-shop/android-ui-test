@@ -138,27 +138,29 @@ def selenium(request):
 
     print("###  nodeid")
     print(request.node.rep_call.nodeid)
+    print(dir(request.node.rep_call.nodeid))
 
     print("###  head_line")
     print(request.node.rep_call.head_line)
+    print(dir(request.node.rep_call.head_line))
        
-    print("###  duration")
-    print(request.node.rep_call.duration)
+    # print("###  duration")
+    # print(request.node.rep_call.duration)
 
-    print("###  capstdout")
-    print(request.node.rep_call.capstdout)
+    # print("###  capstdout")
+    # print(request.node.rep_call.capstdout)
 
-    print("###  caplog")
-    print(request.node.rep_call.caplog)
+    # print("###  caplog")
+    # print(request.node.rep_call.caplog)
 
-    print("###  capstderr")
-    print(request.node.rep_call.capstderr)
+    # print("###  capstderr")
+    # print(request.node.rep_call.capstderr)
     
-    print("###  longreprtext")
-    print(request.node.rep_call.longreprtext)
+    # print("###  longreprtext")
+    # print(request.node.rep_call.longreprtext)
 
-    print("###  from_item_and_call")
-    print(request.node.rep_call.from_item_and_call)
+    # print("###  from_item_and_call")
+    # print(request.node.rep_call.from_item_and_call)
 
     if request.node.rep_call.outcome == "passed":
         test_status = 'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"<tr>", "reason": "<trs>"}}'.replace("<tr>", "passed").replace("<trs>", f"All good! Test {request.node.rep_call.head_line} passed!")
