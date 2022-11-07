@@ -5,12 +5,12 @@ branches:
 install: 
   - "pip install -r requirements.txt"
 language: python
-notifications: 
-  email: 
-    on_failure: always
-    on_success: never
-    recipients: 
-      - abavabaraba@gmail.com
+# notifications: 
+#   email: 
+#     on_failure: always
+#     on_success: never
+#     recipients: 
+#       - abavabaraba@gmail.com
 python: 
   - "3.9"
 script: 
@@ -18,4 +18,5 @@ script:
 before_script:
   - "python aws_android.py"
 after_script:
+  - "sleep 1"
   - "python email_scr.py"
