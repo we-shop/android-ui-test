@@ -51,7 +51,7 @@ json_f.close()
 SESSION_URLS = []
 
 
-# # Customizing appium driver for Browserstack
+# Customizing appium driver for Browserstack
 @pytest.fixture(autouse=True)
 def selenium(request):
     #webdriver
