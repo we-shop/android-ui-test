@@ -16,11 +16,10 @@ GMAIL_ACC_KEY = os.getenv("GMAIL_ACC_KEY")
 
 def email_sender(recipient):
 	# travis link
-	travis_link_1 = os.getenv("TRAVIS_BUILD_WEB_URL")
-	travis_link_2 = os.getenv("TRAVIS_JOB_WEB_URL")
+	travis_ci_build_link = os.getenv("TRAVIS_BUILD_WEB_URL")
 
 	subject = f"Travis CI report | Android automation tests | {cur_date}"
-	body = f"link 1: {travis_link_1} || link 2: {travis_link_2}"
+	body = f"Travis CI build link: {travis_ci_build_link}"
 	sender_email = "abavabaraba@gmail.com"
 	receiver_email = recipient #"abavabaraba@gmail.com", "mike_zone@ukr.net" #"abavabaraba@gmail.com"
 	password = GMAIL_ACC_KEY #input("Type your password and press enter:")
