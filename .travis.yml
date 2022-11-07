@@ -14,7 +14,7 @@ notifications:
 python: 
   - "3.9"
 script: 
-  - "pytest PARTtest_uat.py"
+  - "python email_scr.py"
 before_script:
   - "python aws_android.py"
 after_script:
