@@ -35,7 +35,7 @@ def email_sender(recipient):
     # Add body to email
     message.attach(MIMEText(body, "plain"))
 
-    filename = "report.html"  # report to send (should be in root folder)
+    filename = os.getcwd() + "/report.html"  # report to send (should be in root folder)
 
     # Open PDF file in binary mode
     with open(filename, "rb") as attachment:

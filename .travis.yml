@@ -18,5 +18,4 @@ script:
 before_script:
   - "python aws_android.py"
 after_script:
-  - "sleep 1"
   - "python email_scr.py"
