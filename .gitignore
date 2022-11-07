@@ -1,5 +1,5 @@
 .env
-report.html
+
 
 ui_page_objects/__pycache__/
 locators/__pycache__/
