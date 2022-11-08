@@ -132,7 +132,7 @@ def pytest_runtest_makereport(item, call):
     extra = getattr(report, 'extra', [])
 
     #_html = #f'<div><a href="{SESSION_URLS[-1]}">{SESSION_URLS[-1]}</a></div>'
-    _html = f'<div><p>Public URL: <a href="{SESSION_URLS_PUBLIC[-1]}">{SESSION_URLS_PUBLIC[-1]}</a></p><div><p>BS private URL: <a href="{SESSION_URLS[-1]}">{SESSION_URLS[-1]}</a></p>'
+    _html = f'<div><p>BS REPORT public URL: <a href="{SESSION_URLS_PUBLIC[-1]}">{SESSION_URLS_PUBLIC[-1]}</a></p><div><p>BS peport private URL: <a href="{SESSION_URLS[-1]}">{SESSION_URLS[-1]}</a></p>'
         
         
     if report.when == 'teardown':

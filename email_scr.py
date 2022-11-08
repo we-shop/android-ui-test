@@ -71,3 +71,4 @@ if len(recipients_list) > 0:
 else:
 	print(f"{ERORR} RECIPIENT LIST IS EMPTY!")
 
+
