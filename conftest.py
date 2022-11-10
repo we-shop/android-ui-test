@@ -17,7 +17,6 @@ import json
 from py.xml import html
 
 
-
 load_dotenv()
 
 # Read from file function
