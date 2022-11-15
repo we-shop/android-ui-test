@@ -3,10 +3,10 @@ import os
 
 # LIST OF TESTS
 	#done
-# def test_login_and_logout(login_model, debug_model, selenium):
-# 	debug_model.switch_to_uat(selenium)
-# 	login_model.login_with_assert(selenium)
-# 	login_model.logout(selenium)
+def test_login_and_logout(login_model, debug_model, selenium):
+	debug_model.switch_to_uat(selenium)
+	login_model.login_with_assert(selenium)
+	login_model.logout(selenium)
 
 # 	#done
 # def test_login_with_incorrect_credentials(login_model, debug_model, selenium):
