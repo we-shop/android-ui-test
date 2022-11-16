@@ -11,9 +11,9 @@ from datetime import datetime
 cur_date = datetime.today().strftime('%d-%m-%Y')
 
 
-#recipients_list = ["abavabaraba@gmail.com", "mike_zone@ukr.net"]#, "danilo.lapegna@weshop.co.uk"]
+recipients_list = ["abavabaraba@gmail.com", "mike_zone@ukr.net", "danilo.lapegna@weshop.co.uk"]
 
-recipients_list = ["abavabaraba@gmail.com", "mike_zone@ukr.net", "sridevi.harsha@we.shop", "nik.lalev@weshop.co.uk", "smita.patil@weshop.co.uk", "shriharsha.ka@we.shop"]
+#recipients_list = ["abavabaraba@gmail.com", "mike_zone@ukr.net", "sridevi.harsha@we.shop", "nik.lalev@weshop.co.uk", "smita.patil@weshop.co.uk", "shriharsha.ka@we.shop"]
 
 
 GMAIL_ACC_KEY = os.getenv("GMAIL_ACC_KEY")
