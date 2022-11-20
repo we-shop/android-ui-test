@@ -65,14 +65,13 @@ def generate_json(bucket_tags):
 
 
 	desired_cap = {
-    "device" : "Samsung Galaxy A51",
-    "os_version" : "10.0",
-    "project" : "First Python project2",
-    "build" : "browserstack-build-android",
-    "name": "Android_tests",
-    "app_url": app_link[0],
-    "appium:resetKeyboard": True,
-    "autoGrantPermissions": True,
+	"device" : "Samsung Galaxy A51",
+	"os_version" : "10.0",
+	"project" : "Android Weshop",
+	"build" : "browserstack-Android",
+	"name": "Android test",
+	"app_url": app_link[0],
+	"autoGrantPermissions": True,
 	"appium:unicodeKeyboard": True,
 	"appium:noReset:": False,
 	"appium:resetKeyboard": True
@@ -203,7 +202,7 @@ def check_android_app_tags(path_to_file, tag_set):
 			},
 		  ],
 		 } 
-	    )
+		)
 
 		return [{'Key': 'bs_link', 'Value': uploaded_bs_file_data}, {'Key': 'android_build_id', 'Value': app_id_build}]
 
