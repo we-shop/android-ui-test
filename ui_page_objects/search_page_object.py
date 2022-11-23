@@ -32,7 +32,13 @@ class SearchPage:
 		assert "Adidas".lower() in first_item_in_search_result_text.lower()
 
 		# clear search result
-		clear_field = id_click(driver, CLEAR_SEARCH_X_BTN)
+		try:
+			clear_field = id_click(driver, CLEAR_SEARCH_X_BTN)
+		except:
+			click_on_search_btn_in_head_bar = id_click(driver, SEARCH_BTN_HEAD_BAR)
+			time.sleep(0.3)
+
+		time.sleep(5)
 		#click_in_search_field = id_click(driver, SEARCH_INPUT_FIELD)
 		click_on_search_btn_in_head_bar_again = id_click(driver, SEARCH_BTN_HEAD_BAR)
 		#time.sleep(1)
