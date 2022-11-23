@@ -345,35 +345,40 @@ class ProfilePage:
 		click_on_menu_terms = xpath_click(driver, MENU_TERMS)
 		select_chrome_browser(driver)
 		page_url_terms = el_id(driver, BROWSER_URL_BAR).text
-		assert page_url_terms == "legal.we.shop/terms-and-conditions"
+		#assert page_url_terms == "legal.we.shop/terms-and-conditions"
+		assert "terms-and-conditions" in page_url_terms
 		driver.back()
 
 		# Privacy policy check
 		click_on_menu_privacy_policy = xpath_click(driver, MENU_POLICY)
 		select_chrome_browser(driver)
 		page_url_privacy_policy = el_id(driver, BROWSER_URL_BAR).text
-		assert page_url_privacy_policy == "legal.we.shop/privacy-policy"
+		#assert page_url_privacy_policy == "legal.we.shop/privacy-policy"
+		assert "privacy-policy" in page_url_privacy_policy
 		driver.back()
 
 		# Cookie policy check
 		click_on_menu_cookies = xpath_click(driver, MENU_COOKIE)
 		select_chrome_browser(driver)
 		page_url_cookie = el_id(driver, BROWSER_URL_BAR).text
-		assert page_url_cookie == "help.we.shop/en/article/cookie-policy-pu4kpj/"
+		#assert page_url_cookie == "help.we.shop/en/article/cookie-policy-pu4kpj/"
+		assert "cookie-policy" in page_url_cookie
 		driver.back()
 
 		# Acknowledgements check
 		click_on_menu_acknowledgements = xpath_click(driver, MENU_ACKNOWLEDGEMENTS)
 		select_chrome_browser(driver)
 		page_url_acknowledgements = el_id(driver, BROWSER_URL_BAR).text
-		assert page_url_acknowledgements == "help.we.shop/en/article/acknowledgements-7z42ii/?bust=1629990511519"
+		#assert page_url_acknowledgements == "help.we.shop/en/article/acknowledgements-7z42ii/?bust=1629990511519"
+		assert "acknowledgements" in page_url_acknowledgements
 		driver.back()
 
 		# Community Guidelines check
 		click_on_menu_community_guidelines = xpath_click(driver, MENU_COMMUNITY_GUIDES)
 		select_chrome_browser(driver)
 		page_url_cummunity_guides = el_id(driver, BROWSER_URL_BAR).text
-		assert page_url_cummunity_guides == "help.we.shop/en/article/community-guidelines-m34bm5/"
+		#assert page_url_cummunity_guides == "help.we.shop/en/article/community-guidelines-m34bm5/"
+		assert "community-guidelines" in page_url_cummunity_guides
 		driver.back()
 
 	def customer_support_page_check(self, driver):
@@ -386,7 +391,8 @@ class ProfilePage:
 		# Customer support check
 		select_chrome_browser(driver)
 		page_url_terms = el_id(driver, BROWSER_URL_BAR).text
-		assert page_url_terms == "help.we.shop/en/"
+		#assert page_url_terms == "help.we.shop/en/"
+		assert "help.we.shop" in page_url_terms
 		driver.back()
 	
 
