@@ -168,8 +168,8 @@ def atest_profile_info_pages(login_model, debug_model, profile_model, selenium):
 # 	login_model.login_only_new_acc(selenium)
 # 	dashboard_model.new_acc_check(selenium)
 
-	# Not done | NEED to fix scroll bug
-def test_dashboard_existing_account_check(debug_model, login_model, dashboard_model, selenium):
+	# Done | NEED to fix scroll bug
+def atest_dashboard_existing_account_check(debug_model, login_model, dashboard_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only(selenium)
 	dashboard_model.existing_acc_check(selenium)
@@ -180,7 +180,7 @@ def test_dashboard_existing_account_check(debug_model, login_model, dashboard_mo
 # 	dashboard_model.wenews_check(selenium)
 
 	# Not done
-def atest_walkthough_other_user_posts_and_questions(debug_model, login_model, profile_model, selenium):
+def test_walkthough_other_user_posts_and_questions(debug_model, login_model, profile_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only_new_acc(selenium)
 	profile_model.other_user_posts_n_questions(selenium)

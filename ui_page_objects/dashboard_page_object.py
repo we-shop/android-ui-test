@@ -95,11 +95,11 @@ class DashboardPage:
 		assert share_price > 0
 
 		your_weshare_top = round_dot_and_comma(el_id(driver, DASH_WESHARES_YOUR_WESHARE_TOP).text) #float(el_id(driver, DASH_WESHARES_YOUR_WESHARE_TOP).text.split("£")[1].replace(",", "."))
-		print(your_weshare_top)
+		#print(your_weshare_top)
 		assert your_weshare_top > 1000
 
 		your_weshare_bottom = float(el_id(driver, DASH_WESHARES_YOUR_WESHARE_BOTTOM).text)
-		print(your_weshare_bottom)
+		#print(your_weshare_bottom)
 		assert your_weshare_bottom > 300
 
 		# NEED TO FIX SCROLL BUG
