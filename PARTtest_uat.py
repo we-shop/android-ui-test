@@ -182,10 +182,10 @@ def atest_profile_info_pages(login_model, debug_model, profile_model, selenium):
 # 	dashboard_model.wenews_check(selenium)
 
 	# done
-def test_walkthough_other_user_posts_and_questions(debug_model, login_model, profile_model, selenium):
-	debug_model.switch_to_uat(selenium)
-	login_model.login_only_new_acc(selenium)
-	profile_model.other_user_posts_n_questions(selenium)
+# def test_walkthough_other_user_posts_and_questions(debug_model, login_model, profile_model, selenium):
+# 	debug_model.switch_to_uat(selenium)
+# 	login_model.login_only_new_acc(selenium)
+# 	profile_model.other_user_posts_n_questions(selenium)
 
 # def test_like_and_comment_wishlist(debug_model, login_model, profile_model, selenium):
 # 	debug_model.switch_to_uat(selenium)
@@ -193,7 +193,7 @@ def test_walkthough_other_user_posts_and_questions(debug_model, login_model, pro
 # 	profile_model.wishlist_likes_and_comments(selenium)
 
 	# Not done
-def atest_share_profile_post_and_product(debug_model, login_model, profile_model, selenium):
+def test_share_profile_post_and_product(debug_model, login_model, profile_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_go_to_profile(selenium)
 	profile_model.share_profile_post_and_product(selenium)
