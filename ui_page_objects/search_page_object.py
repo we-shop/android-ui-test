@@ -72,6 +72,7 @@ class SearchPage:
 		click_on_search_btn_in_head_bar = id_click(driver, SEARCH_BTN_HEAD_BAR)
 		make_request_in_search_field = xpath_keys(driver, COLLAPSED_SEARCH_INPUT_FIELD, "Wild dance")
 		select_suggested_search_item = xpath_click(driver, SELECT_SUGGESTED_ITEM_SEARCH_ONE_ITEM)
+		wait_for_first_item_in_search_result = long_wait_el_xpath(driver, FIRST_ITEM_NAME_SEARCH)
 		first_item_in_search_result_click = xpath_click(driver, FIRST_ITEM_NAME_SEARCH)
 
 
