@@ -82,11 +82,11 @@ import os
 
 	# done 1 bug
 # @pytest.mark.xfail #marked as should fail, because of bug
-def test_profile_info_pages(login_model, debug_model, profile_model, selenium):
-	debug_model.switch_to_uat(selenium)
-	login_model.login_go_to_profile(selenium)
-	profile_model.info_pages_check(selenium)
-	profile_model.customer_support_page_check(selenium)
+# def test_profile_info_pages(login_model, debug_model, profile_model, selenium):
+# 	debug_model.switch_to_uat(selenium)
+# 	login_model.login_go_to_profile(selenium)
+# 	profile_model.info_pages_check(selenium)
+# 	profile_model.customer_support_page_check(selenium)
 
 # 	# done
 # def test_profile_about_version_check(debug_model, profile_model, selenium):
@@ -192,14 +192,14 @@ def test_profile_info_pages(login_model, debug_model, profile_model, selenium):
 # 	login_model.login_go_to_profile(selenium)
 # 	profile_model.wishlist_likes_and_comments(selenium)
 
-	# Not done
-def test_share_profile_post_and_product(debug_model, login_model, profile_model, selenium):
-	debug_model.switch_to_uat(selenium)
-	login_model.login_go_to_profile(selenium)
-	profile_model.share_profile_post_and_product(selenium)
+# 	# Done
+# def test_share_profile_post_and_product(debug_model, login_model, profile_model, selenium):
+# 	debug_model.switch_to_uat(selenium)
+# 	login_model.login_go_to_profile(selenium)
+# 	profile_model.share_profile_post_and_product(selenium)
 
 	# Not done
-def atest_search_products_and_check_terms_and_description(login_model, debug_model, search_model, product_page_model, selenium):
+def test_search_products_and_check_terms_and_description(login_model, debug_model, search_model, product_page_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only(selenium)
 	search_model.search_specific_product_and_open_detail_page(selenium)
