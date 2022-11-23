@@ -152,11 +152,11 @@ def atest_profile_info_pages(login_model, debug_model, profile_model, selenium):
 # 	post_model.ask_question(selenium)
 # 	post_model.comment_edit_and_delete_in_self_question_second(selenium)
 
-	# NOT done
-def test_inbox_check(debug_model, login_model, inbox_model, selenium):
-	debug_model.switch_to_uat(selenium)
-	login_model.login_only(selenium)
-	inbox_model.inbox_check(selenium)
+# 	# done
+# def test_inbox_check(debug_model, login_model, inbox_model, selenium):
+# 	debug_model.switch_to_uat(selenium)
+# 	login_model.login_only(selenium)
+# 	inbox_model.inbox_check(selenium)
 
 # def test_inbox_redirect_to_post_and_question_check(debug_model, login_model, inbox_model, selenium):
 # 	debug_model.switch_to_uat(selenium)
