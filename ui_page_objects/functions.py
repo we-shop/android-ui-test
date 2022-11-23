@@ -359,6 +359,21 @@ def round_two_dots(data):
 	else:
 		return float(data_convert)
 
+
+def round_dot_and_comma(data):
+	data_convert = data.split("£")[1].replace(",", "")
+	count_of_dots = 0
+
+	for i in data_convert:
+		if i == ".":
+			count_of_dots +=1
+	
+	if count_of_dots == 2:
+		second_part_of_number = "." + data_convert.split(".")[2]
+		return float(data_convert.replace(second_part_of_number, ""))
+	else:
+		return float(data_convert)		
+
 # element = driver.find_element_by_id("my-id")
 
 # actions = ActionChains(driver)
