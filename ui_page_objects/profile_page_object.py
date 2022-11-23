@@ -574,7 +574,7 @@ class ProfilePage:
 		# clicking share profile button and getting data from clipboard
 		click_on_profile_share_btn = id_click(driver, PROFILE_SHARE_BUTTON)
 		#click_on_copy_btn = id_click(driver, SHARE_WINDOW_COPY_BTN)
-		click_on_copy_btn = xpath_click(driver, "//[contains(@text, 'Copy')]")
+		click_on_copy_btn = xpath_click(driver, "//*[contains(@text, 'Copy')]")
 		
 		get_profile_text_from_clipboard = driver.get_clipboard_text()
 		
