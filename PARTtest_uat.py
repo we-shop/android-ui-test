@@ -169,7 +169,7 @@ def test_inbox_check(debug_model, login_model, inbox_model, selenium):
 # 	dashboard_model.new_acc_check(selenium)
 
 	# Not done | NEED to fix scroll bug
-def atest_dashboard_existing_account_check(debug_model, login_model, dashboard_model, selenium):
+def test_dashboard_existing_account_check(debug_model, login_model, dashboard_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only(selenium)
 	dashboard_model.existing_acc_check(selenium)

@@ -62,7 +62,7 @@ def el_xpath_short_wait_with_fail(driver, locator):
 
 def el_id_short_wait(driver, locator):
 	try:
-		WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, locator)))
+		WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.ID, locator)))
 		#return driver.find_element(By.ID, locator)
 	except:
 		#print(f"Element to find by ID (short wait): {locator} is not found!")

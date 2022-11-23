@@ -28,6 +28,7 @@ class InboxPage:
 		#getting_all_inbox_message_titles = elems_id(driver, ALL_INBOX_TITLES)
 		try:
 			el_id_short_wait(driver, ALL_INBOX_TITLES)
+			#WebDriverWait(driver, 7).until(EC.presence_of_element_located((By.ID, ALL_INBOX_TITLES)))
 			check_msgs = elems_id(driver, ALL_INBOX_TITLES)
 			getting_all_inbox_message_titles = [i.text for i in check_msgs]
 			is_inbox_messages = True
