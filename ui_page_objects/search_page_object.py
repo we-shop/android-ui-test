@@ -20,6 +20,7 @@ class SearchPage:
 		# search request
 		switch_to_search_menu = acc_id_click(driver, FOOTER_ITEM_SEARCH)
 		click_on_search_btn_in_head_bar = id_click(driver, SEARCH_BTN_HEAD_BAR)
+		time.sleep(0.2)
 		make_request_in_search_field = xpath_keys(driver, COLLAPSED_SEARCH_INPUT_FIELD, "Adidas")
 		time.sleep(1.1)
 		select_suggested_search_item = xpath_click(driver, SELECT_SUGGESTED_ITEM_SEARCH)
