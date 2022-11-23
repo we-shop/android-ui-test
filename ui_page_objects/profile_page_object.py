@@ -573,8 +573,8 @@ class ProfilePage:
 
 		# clicking share profile button and getting data from clipboard
 		click_on_profile_share_btn = id_click(driver, PROFILE_SHARE_BUTTON)
-		#click_on_copy_btn = id_click(driver, SHARE_WINDOW_COPY_BTN)
-		click_on_copy_btn = xpath_click(driver, "//*[contains(@text, 'Copy')]")
+		#click_on_copy_btn = id_click(driver, SHARE_WINDOW_COPY_BTN) #for different droids
+		click_on_copy_btn = xpath_click(driver, SHARE_WINDOW_COPY_BTN)
 		
 		get_profile_text_from_clipboard = driver.get_clipboard_text()
 		
@@ -591,7 +591,8 @@ class ProfilePage:
 		# go to post in profile and check share functionality
 		click_on_first_product_in_posts_tab = xpath_click(driver, PROFILE_FIRST_ITEM_IN_POST_TAB_TEXT)
 		click_on_share_post_btn = id_click(driver, PROFILE_POST_SHARE_BUTTON)
-		click_on_copy_btn = id_click(driver, SHARE_WINDOW_COPY_BTN)
+		#click_on_copy_btn = id_click(driver, SHARE_WINDOW_COPY_BTN) #for different droids
+		click_on_copy_btn = xpath_click(driver, SHARE_WINDOW_COPY_BTN)
 
 		get_post_text_from_clipboard = driver.get_clipboard_text()
 
@@ -600,7 +601,8 @@ class ProfilePage:
 		# go to product and check share functionality
 		click_on_product_in_post = id_click(driver, POST_PRODUCT_TITLE)
 		click_on_share_product_btn = id_click(driver, PRODUCT_SHARE_BUTTON)
-		click_on_copy_btn = id_click(driver, SHARE_WINDOW_COPY_BTN)
+		#click_on_copy_btn = id_click(driver, SHARE_WINDOW_COPY_BTN) #for different droids
+		click_on_copy_btn = xpath_click(driver, SHARE_WINDOW_COPY_BTN)
 
 		get_product_text_from_clipboard = driver.get_clipboard_text()
 
