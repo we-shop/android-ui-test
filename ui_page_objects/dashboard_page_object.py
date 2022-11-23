@@ -78,7 +78,8 @@ class DashboardPage:
 		CURRENT_DATE = datetime.today().strftime('%d.%m.%y')
 
 		# open dashboard
-		go_to_dashboard = id_click(driver, FOOTER_ITEM_DASHBOARD)
+		click_on_profile_footer_item = acc_id_click(driver, PROFILE_FOOTER_MENU)
+		go_to_dashboard = acc_id_click(driver, FOOTER_ITEM_DASHBOARD)
 
 		# check weshares tab
 		# OLD
@@ -108,7 +109,7 @@ class DashboardPage:
 		#driver.back()
 
 		# switch to transactions tab
-		click_on_transactions_tab = id_click(driver, DASHBOARD_TRANSACTIONS_TAB)
+		click_on_transactions_tab = acc_id_click(driver, DASHBOARD_TRANSACTIONS_TAB)
 
 		# check purchases
 		click_on_show_more_purchases = id_click(driver, DASH_TRANS_SHOW_MORE_PURCHASES)
@@ -166,7 +167,7 @@ class DashboardPage:
 		driver.back()
 
 		# reffer and earn tab
-		go_to_refer_n_earn_tab = id_click(driver, DASHBOARD_REFER_N_EARN_TAB)
+		go_to_refer_n_earn_tab = acc_id_click(driver, DASHBOARD_REFER_N_EARN_TAB)
 		wait_for_share_username_btn = el_id(driver, DASH_REFER_N_EARN_SHARE_USRN_BTN)
 		wait_for_terms_link = el_id(driver, DASH_REFER_N_EARN_TERMS_LINK)
 
