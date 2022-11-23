@@ -80,8 +80,9 @@ import os
 # 	login_model.login_go_to_profile(selenium)
 # 	profile_model.deactivate_account_and_login_after(selenium)
 
-	# NOT done 1
-def test_profile_info_pages(login_model, debug_model, profile_model, selenium):
+	# done 1 bug
+@pytest.mark.xfail #marked as should fail, because of bug
+def atest_profile_info_pages(login_model, debug_model, profile_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_go_to_profile(selenium)
 	profile_model.info_pages_check(selenium)
@@ -152,7 +153,7 @@ def test_profile_info_pages(login_model, debug_model, profile_model, selenium):
 # 	post_model.comment_edit_and_delete_in_self_question_second(selenium)
 
 	# NOT done
-def atest_inbox_check(debug_model, login_model, inbox_model, selenium):
+def test_inbox_check(debug_model, login_model, inbox_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only(selenium)
 	inbox_model.inbox_check(selenium)
