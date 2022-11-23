@@ -78,7 +78,7 @@ class DashboardPage:
 		CURRENT_DATE = datetime.today().strftime('%d.%m.%y')
 
 		# open dashboard
-		click_on_profile_footer_item = acc_id_click(driver, PROFILE_FOOTER_MENU)
+		click_on_profile_footer_item = acc_id_click(driver, FOOTER_ITEM_PROFILE)
 		go_to_dashboard = acc_id_click(driver, FOOTER_ITEM_DASHBOARD)
 
 		# check weshares tab
