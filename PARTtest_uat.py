@@ -158,28 +158,30 @@ def atest_profile_info_pages(login_model, debug_model, profile_model, selenium):
 # 	login_model.login_only(selenium)
 # 	inbox_model.inbox_check(selenium)
 
+	# done
 # def test_inbox_redirect_to_post_and_question_check(debug_model, login_model, inbox_model, selenium):
 # 	debug_model.switch_to_uat(selenium)
 # 	login_model.login_only(selenium)
 # 	inbox_model.inbox_post_and_question_redirects(selenium)
 
+	# done
 # def test_dashboard_new_account_check(debug_model, login_model, dashboard_model, selenium):
 # 	debug_model.switch_to_uat(selenium)
 # 	login_model.login_only_new_acc(selenium)
 # 	dashboard_model.new_acc_check(selenium)
 
-	# Done | NEED to fix scroll bug
-def atest_dashboard_existing_account_check(debug_model, login_model, dashboard_model, selenium):
-	debug_model.switch_to_uat(selenium)
-	login_model.login_only(selenium)
-	dashboard_model.existing_acc_check(selenium)
+	# done | NEED to fix scroll bug
+# def test_dashboard_existing_account_check(debug_model, login_model, dashboard_model, selenium):
+# 	debug_model.switch_to_uat(selenium)
+# 	login_model.login_only(selenium)
+# 	dashboard_model.existing_acc_check(selenium)
 
 # def OLDtest_dashboard_wenews_check(debug_model, login_model, dashboard_model, selenium):
 # 	debug_model.switch_to_uat(selenium)
 # 	login_model.login_only(selenium)
 # 	dashboard_model.wenews_check(selenium)
 
-	# Not done
+	# done
 def test_walkthough_other_user_posts_and_questions(debug_model, login_model, profile_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_only_new_acc(selenium)
