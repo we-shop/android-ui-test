@@ -440,7 +440,7 @@ class ProfilePage:
 		switch_to_search_menu = acc_id_click(driver, FOOTER_ITEM_SEARCH)
 		click_on_search_btn_in_head_bar = id_click(driver, SEARCH_BTN_HEAD_BAR)
 		make_request_in_search_field = xpath_keys(driver, COLLAPSED_SEARCH_INPUT_FIELD, USER_1)
-		click_on_suggested_item_in_search = xpath_click(driver, SEARCH_RESULT_FOURTH_ITEM)
+		click_on_suggested_item_in_search = id_click(driver, SEARCH_RESULT_ONE_ITEM_TEXT)
 		#select_suggested_search_item = xpath_click(driver, SELECT_SUGGESTED_ITEM_SEARCH_ONE_ITEM)
 		#first_item_in_search_result_click = xpath_click(driver, FIRST_ITEM_NAME_SEARCH)
 
