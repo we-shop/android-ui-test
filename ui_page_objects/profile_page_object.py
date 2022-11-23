@@ -431,7 +431,7 @@ class ProfilePage:
 
 	def other_user_posts_n_questions(self, driver):
 		# test users
-		USER_1 = "@nemesis"
+		USER_1 = "@nemesistwo"
 		USER_2 = "Veremeychik"
 		follow = 0
 		unfollow = 0 
