@@ -14,11 +14,11 @@ import os
 # 	login_model.login_with_incorrect_creds(selenium)
 
 
-	# NOT done
-def test_search_request_and_clear_field(login_model, debug_model, search_model, selenium):
-	debug_model.switch_to_uat(selenium)
-	login_model.login_only(selenium)
-	search_model.search_and_clear_field(selenium)
+# 	# done
+# def test_search_request_and_clear_field(login_model, debug_model, search_model, selenium):
+# 	debug_model.switch_to_uat(selenium)
+# 	login_model.login_only(selenium)
+# 	search_model.search_and_clear_field(selenium)
 
 # 	# done 1
 # def test_add_and_remove_product_from_wishlist(login_model, debug_model, search_model, product_page_model, selenium):
@@ -81,7 +81,7 @@ def test_search_request_and_clear_field(login_model, debug_model, search_model, 
 # 	profile_model.deactivate_account_and_login_after(selenium)
 
 	# NOT done 1
-def atest_profile_info_pages(login_model, debug_model, profile_model, selenium):
+def test_profile_info_pages(login_model, debug_model, profile_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_go_to_profile(selenium)
 	profile_model.info_pages_check(selenium)
