@@ -257,6 +257,23 @@ def taking_you_to_win(driver):
 		print(f"Expected window is not displayed: {ERROR}")
 
 
+# long waits
+def long_wait_el_xpath(driver, locator):
+	try:
+		WebDriverWait(driver, 22).until(EC.presence_of_element_located((MobileBy.XPATH, locator)))
+		return driver.find_element(MobileBy.XPATH, locator)
+	except:
+		print(f"Element to find by XPATH: {locator} is not found!")
+		print(f"{ERROR}")
+
+def long_wait_el_id(driver, locator):
+	try:
+		WebDriverWait(driver, 22).until(EC.presence_of_element_located((By.ID, locator)))
+		return driver.find_element(By.ID, locator)
+	except:
+		print(f"Element to find by ID: {locator} is not found!")
+		print(f"{ERROR}")
+
 # Long press function
 def long_click_id(driver, locator):
 	WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, locator)))
