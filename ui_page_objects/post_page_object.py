@@ -607,6 +607,8 @@ class PostPage:
 		is_carousel = True
 
 		# carousel checks
+		scroll_on_feed_page(driver)
+		el_xpath(driver, FEED_SLIDE_HEADLINE)
 		scope_carousel_before_swipe = [i.text for i in elems_xpath(driver, FEED_SLIDE_HEADLINE)]
 		read_text_in_first_carousel_item = el_xpath(driver, FEED_SLIDE_HEADLINE).text
 		assert len(read_text_in_first_carousel_item) > 5
