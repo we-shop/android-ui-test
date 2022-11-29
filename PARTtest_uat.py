@@ -205,19 +205,21 @@ import os
 # 	search_model.search_specific_product_and_open_detail_page(selenium)
 # 	product_page_model.open_description_and_terms(selenium)
 
+#	# done
 # def test_wishlist_create_read_update_delete(debug_model, login_model, profile_model, selenium):
 # 	debug_model.switch_to_uat(selenium)
 # 	login_model.login_go_to_profile(selenium)
 # 	profile_model.wishlist_crud(selenium)
 
 # 	# not done
-# def atest_home_feed_carousel(debug_model, login_model, post_model, selenium):
-# 	debug_model.switch_to_uat(selenium)
-# 	login_model.login_go_to_profile(selenium)
-# 	post_model.home_feed_carousel(selenium)
-
-def test_flag_post_content(debug_model, login_model, post_model, selenium):
+def test_home_feed_carousel(debug_model, login_model, post_model, selenium):
 	debug_model.switch_to_uat(selenium)
-	login_model.login_only_new_acc(selenium)
-	post_model.flag_post_content(selenium)
+	login_model.login_go_to_profile(selenium)
+	post_model.home_feed_carousel(selenium)
+
+# 	# done
+# def test_flag_post_content(debug_model, login_model, post_model, selenium):
+# 	debug_model.switch_to_uat(selenium)
+# 	login_model.login_only_new_acc(selenium)
+# 	post_model.flag_post_content(selenium)
 

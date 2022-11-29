@@ -666,8 +666,9 @@ class PostPage:
 
 		open_sub_menu_of_post = id_click(driver, POST_DOTS_SUB_MENU)
 		select_flag_content = xpath_click(driver, POST_DOTS_SUB_MENU_EDIT_POST)
+		wait_list_of_flags = el_id(driver, POST_DOTS_SUB_MENU_FLAG_CONTENT_ITEMS)
 		read_all_flag_reasons = elems_id(driver, POST_DOTS_SUB_MENU_FLAG_CONTENT_ITEMS)
-		print([i.text for i in read_all_flag_reasons])
+		#print([i.text for i in read_all_flag_reasons])
 		select_random_flag_reason = read_all_flag_reasons[random.randint(0, len(read_all_flag_reasons))].click()
 		read_success_message_title = el_id(driver, POST_FLAG_CONTENT_SUCCESS_WIN_TITLE).text
 
