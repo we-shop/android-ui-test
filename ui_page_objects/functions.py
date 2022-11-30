@@ -311,7 +311,8 @@ def scroll_on_feed_page_more(driver):
 def scroll_up_on_feed_page(driver):
 	time.sleep(2)
 	action = TouchAction(driver)
-	action.press(x=867, y=1874).wait(1000).move_to(x=867, y=2455).release().perform()
+	action.press(x=867, y=1774).wait(1000).move_to(x=867, y=2150).release().perform()
+	#Coordinate [x=867.0, y=2455.0] is outside of element rect: [0,0][1080,2186]
 	time.sleep(0.3)	
 
 def horisontal_carousel_swipe(driver):
