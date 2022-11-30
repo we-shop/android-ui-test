@@ -619,9 +619,9 @@ class PostPage:
 
 		scope_carousel_after_swipe = [b.text for b in elems_xpath(driver, FEED_SLIDE_HEADLINE)]
 
-		#assert scope_carousel_before_swipe != scope_carousel_after_swipe
-		print(scope_carousel_before_swipe)
-		print(scope_carousel_after_swipe)
+		assert scope_carousel_before_swipe != scope_carousel_after_swipe
+		#print(scope_carousel_before_swipe)
+		#print(scope_carousel_after_swipe)
 
 
 		# Temprorary commented, because of varios combinations of functionality
