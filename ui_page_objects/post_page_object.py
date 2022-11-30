@@ -53,6 +53,7 @@ class PostPage:
 		read_post_title = el_id(driver, FEED_POST_DESCRIPTION).text.split(" ")[-1]
 		read_count_of_linear_carousel_items = len(elems_xpath(driver, READ_ALL_PRODUCT_LINEAR_LAYOUTS))
 
+		time.sleep(0.6)
 		scroll_up_on_feed_page(driver)
 		scroll_up_on_feed_page(driver)
 		open_sub_menu_of_post = id_click(driver, POST_DOTS_SUB_MENU)
