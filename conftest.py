@@ -194,3 +194,6 @@ def inbox_model(request):
 def dashboard_model(request):
   fixture = DashboardPage(LOGIN_URL, LOGIN, PASSWORD, LOGIN_NEW, PASSWORD_NEW, LOGIN_INT, PASSWORD_INT, LOGIN_INT_NEW, PASSWORD_INT_NEW)
   return fixture
+
+
+
