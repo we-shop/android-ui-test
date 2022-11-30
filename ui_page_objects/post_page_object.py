@@ -42,9 +42,9 @@ class PostPage:
 		publish_btn_click = id_click(driver, PUBLISH_BTN_ADD_PRODUCT)
 
 		# check if product created (checking title/caption in feed)
-		wait_element = el_id(driver, POST_TIME_AGO_TEXT)
+		wait_element = long_wait_el_id(driver, POST_TIME_AGO_TEXT)
 		scroll_on_feed_page(driver)
-		#get_correct_text_by_id(driver, FEED_POST_DESCRIPTION, PRODUCT_ID)
+		get_correct_text_by_id(driver, FEED_POST_DESCRIPTION, PRODUCT_ID)
 
 	def product_edit_and_deletion(self, driver):
 		# starting from opened feed
@@ -146,7 +146,8 @@ class PostPage:
 		publish_btn_click = id_click(driver, PUBLISH_BTN_ADD_PRODUCT)
 
 		# check if question created (checking title/caption in feed)
-		wait_element = el_id(driver, POST_TIME_AGO_TEXT)
+		wait_element = long_wait_el_id(driver, POST_TIME_AGO_TEXT)
+		time.sleep(1)
 		#scroll_on_feed_page(driver)
 		scroll_on_feed_page_more(driver)
 		get_correct_text_by_id(driver, FEED_POST_DESCRIPTION, QUESTION_ID)
