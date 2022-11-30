@@ -27,6 +27,7 @@ class PostPage:
 		add_first_product_click = xpath_click(driver, ADD_FIRST_PRODUCT_PLUS_INPUT)
 		search_product_for_post = id_keys(driver, SEARCH_PRODUCT_POST_CREATION, "Samsung")
 		driver.keyevent(66) # additional execution: send_enter_key_adb(driver)
+		wait_for_first_elem_search_result = long_wait_el_xpath(driver, SEARCH_RESULT_PRODUCT_ONE)
 		fill_radio_btn_product_one = xpath_click(driver, SEARCH_RESULT_PRODUCT_ONE)
 		fill_radio_btn_product_two = xpath_click(driver, SEARCH_RESULT_PRODUCT_TWO)
 		fill_radio_btn_product_three = xpath_click(driver, SEARCH_RESULT_PRODUCT_THREE)
@@ -131,6 +132,7 @@ class PostPage:
 		click_in_srch_field = id_click(driver, SEARCH_PRODUCT_POST_CREATION) # probably temporary step, because of bug
 		search_product_for_question = id_keys(driver, SEARCH_PRODUCT_POST_CREATION, "Xiaomi")
 		driver.keyevent(66) # additional execution: send_enter_key_adb(driver)
+		wait_for_first_elem_search_result = long_wait_el_xpath(driver, SEARCH_RESULT_PRODUCT_ONE)
 		fill_radio_btn_product_one = xpath_click(driver, SEARCH_RESULT_PRODUCT_ONE)
 		fill_radio_btn_product_two = xpath_click(driver, SEARCH_RESULT_PRODUCT_TWO)
 		fill_radio_btn_product_three = xpath_click(driver, SEARCH_RESULT_PRODUCT_THREE)
