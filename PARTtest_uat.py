@@ -137,10 +137,11 @@ def test_post_create_new_question(debug_model, login_model, post_model, selenium
 # 	post_model.ask_question(selenium)
 # 	post_model.question_edit_and_deletion(selenium)
 
-def test_self_question_like_and_comment_check(debug_model, login_model, post_model, selenium):
-	debug_model.switch_to_uat(selenium)
-	login_model.login_go_to_profile(selenium)
-	post_model.comment_and_like_self_question(selenium)
+# 	# done | need to add like STATE (NEED TO DISCUSS WITH DANILO)
+# def test_self_question_like_and_comment_check(debug_model, login_model, post_model, selenium):
+# 	debug_model.switch_to_uat(selenium)
+# 	login_model.login_go_to_profile(selenium)
+# 	post_model.comment_and_like_self_question(selenium)
 
 # def QQQtest_self_question_comment_edit_and_delete(debug_model, login_model, post_model, selenium):
 # 	debug_model.switch_to_uat(selenium)

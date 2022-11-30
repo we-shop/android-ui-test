@@ -112,7 +112,7 @@ class PostPage:
 		popular_designs_click = id_click(driver, QUESTION_UPLOAD_FROM_DESIGNS)
 		all_backgrounds = elems_xpath(driver, CUSTOM_BACKGROUND_ITEMS)
 		random_background_click = all_backgrounds[random.randint(0, 5)].click()
-		save_btn_background_lst_click = id_click(driver, SAVE_BTN_BACKGROUND_ITEMS)
+		save_btn_background_lst_click = id_click(driver, STEP_BTN_ADD_PRODUCT)
 
 		all_texts = elems_xpath(driver, ALL_TEXT_STYLES)
 		random_text_style_click = all_texts[random.randint(0, 5)].click()
