@@ -70,10 +70,10 @@ import os
 # 	login_model.login_go_to_profile(selenium)
 # 	profile_model.follow_few_users(selenium)
 
-# def test_profile_info_edit(login_model, debug_model, profile_model, selenium):
-# 	debug_model.switch_to_uat(selenium)
-# 	login_model.login_go_to_profile(selenium)
-# 	profile_model.edit_profile(selenium)
+def test_profile_info_edit(login_model, debug_model, profile_model, selenium):
+	debug_model.switch_to_uat(selenium)
+	login_model.login_go_to_profile(selenium)
+	profile_model.edit_profile(selenium)
 
 # def QQQtest_profile_deactivate_account_flow(login_model, debug_model, profile_model, selenium):
 # 	debug_model.switch_to_uat(selenium)
@@ -187,6 +187,7 @@ import os
 # 	login_model.login_only_new_acc(selenium)
 # 	profile_model.other_user_posts_n_questions(selenium)
 
+# done
 def test_like_and_comment_wishlist(debug_model, login_model, profile_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_go_to_profile(selenium)
@@ -211,11 +212,11 @@ def test_like_and_comment_wishlist(debug_model, login_model, profile_model, sele
 # 	login_model.login_go_to_profile(selenium)
 # 	profile_model.wishlist_crud(selenium)
 
-	# done
-def test_home_feed_carousel(debug_model, login_model, post_model, selenium):
-	debug_model.switch_to_uat(selenium)
-	login_model.login_go_to_profile(selenium)
-	post_model.home_feed_carousel(selenium)
+# 	# done
+# def test_home_feed_carousel(debug_model, login_model, post_model, selenium):
+# 	debug_model.switch_to_uat(selenium)
+# 	login_model.login_go_to_profile(selenium)
+# 	post_model.home_feed_carousel(selenium)
 
 # 	# done
 # def test_flag_post_content(debug_model, login_model, post_model, selenium):
