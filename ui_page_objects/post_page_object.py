@@ -619,7 +619,10 @@ class PostPage:
 
 		scope_carousel_after_swipe = [b.text for b in elems_xpath(driver, FEED_SLIDE_HEADLINE)]
 
-		assert scope_carousel_before_swipe != scope_carousel_after_swipe
+
+		assert scope_carousel_before_swipe != scope_carousel_after_swipe # items in carousel is different, because of swipe 
+		assert scope_carousel_before_swipe[1] == scope_carousel_after_swipe[0] # after scroll 1 item will have intersection
+
 		#print(scope_carousel_before_swipe)
 		#print(scope_carousel_after_swipe)
 

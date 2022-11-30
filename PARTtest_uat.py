@@ -187,10 +187,10 @@ import os
 # 	login_model.login_only_new_acc(selenium)
 # 	profile_model.other_user_posts_n_questions(selenium)
 
-# def test_like_and_comment_wishlist(debug_model, login_model, profile_model, selenium):
-# 	debug_model.switch_to_uat(selenium)
-# 	login_model.login_go_to_profile(selenium)
-# 	profile_model.wishlist_likes_and_comments(selenium)
+def test_like_and_comment_wishlist(debug_model, login_model, profile_model, selenium):
+	debug_model.switch_to_uat(selenium)
+	login_model.login_go_to_profile(selenium)
+	profile_model.wishlist_likes_and_comments(selenium)
 
 # 	# Done
 # def test_share_profile_post_and_product(debug_model, login_model, profile_model, selenium):
@@ -211,7 +211,7 @@ import os
 # 	login_model.login_go_to_profile(selenium)
 # 	profile_model.wishlist_crud(selenium)
 
-# 	# not done
+	# done
 def test_home_feed_carousel(debug_model, login_model, post_model, selenium):
 	debug_model.switch_to_uat(selenium)
 	login_model.login_go_to_profile(selenium)
