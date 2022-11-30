@@ -70,10 +70,12 @@ import os
 # 	login_model.login_go_to_profile(selenium)
 # 	profile_model.follow_few_users(selenium)
 
-def test_profile_info_edit(login_model, debug_model, profile_model, selenium):
-	debug_model.switch_to_uat(selenium)
-	login_model.login_go_to_profile(selenium)
-	profile_model.edit_profile(selenium)
+
+# 	# done
+# def test_profile_info_edit(login_model, debug_model, profile_model, selenium):
+# 	debug_model.switch_to_uat(selenium)
+# 	login_model.login_go_to_profile(selenium)
+# 	profile_model.edit_profile(selenium)
 
 # def QQQtest_profile_deactivate_account_flow(login_model, debug_model, profile_model, selenium):
 # 	debug_model.switch_to_uat(selenium)
@@ -124,10 +126,10 @@ def test_profile_info_edit(login_model, debug_model, profile_model, selenium):
 # 	post_model.recommend_product(selenium)
 # 	post_model.comment_edit_and_delete_in_self_post_second(selenium)
 
-# def QQQtest_post_create_new_question(debug_model, login_model, post_model, selenium):
-# 	debug_model.switch_to_uat(selenium)
-# 	login_model.login_only(selenium)
-# 	post_model.ask_question(selenium)
+def test_post_create_new_question(debug_model, login_model, post_model, selenium):
+	debug_model.switch_to_uat(selenium)
+	login_model.login_only(selenium)
+	post_model.ask_question(selenium)
 
 # def QQQtest_post_create_new_question_edit_delete(debug_model, login_model, post_model, selenium):
 # 	debug_model.switch_to_uat(selenium)
@@ -135,10 +137,10 @@ def test_profile_info_edit(login_model, debug_model, profile_model, selenium):
 # 	post_model.ask_question(selenium)
 # 	post_model.question_edit_and_deletion(selenium)
 
-# def test_self_question_like_and_comment_check(debug_model, login_model, post_model, selenium):
-# 	debug_model.switch_to_uat(selenium)
-# 	login_model.login_go_to_profile(selenium)
-# 	post_model.comment_and_like_self_question(selenium)
+def test_self_question_like_and_comment_check(debug_model, login_model, post_model, selenium):
+	debug_model.switch_to_uat(selenium)
+	login_model.login_go_to_profile(selenium)
+	post_model.comment_and_like_self_question(selenium)
 
 # def QQQtest_self_question_comment_edit_and_delete(debug_model, login_model, post_model, selenium):
 # 	debug_model.switch_to_uat(selenium)
@@ -187,11 +189,11 @@ def test_profile_info_edit(login_model, debug_model, profile_model, selenium):
 # 	login_model.login_only_new_acc(selenium)
 # 	profile_model.other_user_posts_n_questions(selenium)
 
-# done
-def test_like_and_comment_wishlist(debug_model, login_model, profile_model, selenium):
-	debug_model.switch_to_uat(selenium)
-	login_model.login_go_to_profile(selenium)
-	profile_model.wishlist_likes_and_comments(selenium)
+# # done
+# def test_like_and_comment_wishlist(debug_model, login_model, profile_model, selenium):
+# 	debug_model.switch_to_uat(selenium)
+# 	login_model.login_go_to_profile(selenium)
+# 	profile_model.wishlist_likes_and_comments(selenium)
 
 # 	# Done
 # def test_share_profile_post_and_product(debug_model, login_model, profile_model, selenium):
