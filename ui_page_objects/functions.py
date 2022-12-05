@@ -149,7 +149,7 @@ def get_toast_msg_short(driver):
 
 
 def get_win_size(driver):
-	# {'width': 1080, 'height': 2186}
+	# {'width': 1080, 'height': 2186} # dict
 	return driver.get_window_size()
 
 

@@ -15,10 +15,10 @@ import os
 
 
 # 	# done
-# def test_search_request_and_clear_field(login_model, debug_model, search_model, selenium):
-# 	debug_model.switch_to_uat(selenium)
-# 	login_model.login_only(selenium)
-# 	search_model.search_and_clear_field(selenium)
+def test_search_request_and_clear_field(login_model, debug_model, search_model, selenium):
+	debug_model.switch_to_uat(selenium)
+	login_model.login_only(selenium)
+	search_model.search_and_clear_field(selenium)
 
 # 	# done 1
 # def test_add_and_remove_product_from_wishlist(login_model, debug_model, search_model, product_page_model, selenium):
@@ -91,9 +91,9 @@ def test_profile_follow_few_users_using_search(login_model, debug_model, profile
 # 	profile_model.customer_support_page_check(selenium)
 
 # 	# done
-# def test_profile_about_version_check(debug_model, profile_model, selenium):
-# 	debug_model.switch_to_uat_version_check(selenium)
-# 	profile_model.about_version_check(selenium)
+def test_profile_about_version_check(debug_model, profile_model, selenium):
+	debug_model.switch_to_uat_version_check(selenium)
+	profile_model.about_version_check(selenium)
 
 # 	# done 1
 # def test_post_create_new_product(debug_model, login_model, post_model, selenium):

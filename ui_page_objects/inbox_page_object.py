@@ -55,7 +55,7 @@ class InboxPage:
 			assert "No activity here, yet" in el_id(driver, NO_CONTENT_TEXT).text
 
 
-		print(getting_all_inbox_message_titles)
+		#print(getting_all_inbox_message_titles)
 		have_post_like = None
 		have_question_like = None
 		
@@ -68,7 +68,7 @@ class InboxPage:
 			else:
 				pass
 
-		print(have_post_like)
+		#print(have_post_like)
 		if have_post_like:
 			try:
 				assert el_xpath(driver, POST_HEAD_TITLE_YOUR_PRODUCT).text == "Your post"
