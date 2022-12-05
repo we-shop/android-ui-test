@@ -304,7 +304,7 @@ class ProfilePage:
 
 		driver.back()
 		
-		print(get_win_size(driver))
+		print(type(get_win_size(driver)))
 
 		# searching USER_2 and subscribing/unsubscribing
 		#clear_search_btn_click = id_click(driver, CLEAR_SEARCH_X_BTN) # old approach
