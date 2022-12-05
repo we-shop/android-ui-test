@@ -56,6 +56,7 @@ class SearchPage:
 		select_suggested_search_item = xpath_click(driver, SELECT_SUGGESTED_ITEM_SEARCH)
 
 		# verify that we have search result
+		wait_for_search_result = long_wait_el_xpath(driver, FIRST_ITEM_NAME_SEARCH)
 		first_item_in_search_result_text = el_xpath(driver, FIRST_ITEM_NAME_SEARCH).text
 
 		assert "Samsung".lower() in first_item_in_search_result_text.lower()

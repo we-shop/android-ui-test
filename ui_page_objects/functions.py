@@ -143,9 +143,13 @@ def get_toast_msg(driver):
 def get_toast_msg_short(driver):
 	toast_locator = "/hierarchy/android.widget.Toast"
 	
-	WebDriverWait(driver, 3).until(EC.presence_of_element_located((MobileBy.XPATH, toast_locator)))
+	WebDriverWait(driver, 4).until(EC.presence_of_element_located((MobileBy.XPATH, toast_locator)))
 	time.sleep(0.8) # obligatory wait, needed for script pause, between reading of 2 or more toast messages.
 	return driver.find_element(MobileBy.XPATH, toast_locator).text
+
+
+def get_win_size(driver):
+	return driver.get_window_size()
 
 
 # random letters

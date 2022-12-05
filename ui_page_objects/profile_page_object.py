@@ -304,8 +304,21 @@ class ProfilePage:
 
 		driver.back()
 		
+		print(get_win_size(driver))
+
 		# searching USER_2 and subscribing/unsubscribing
-		clear_search_btn_click = id_click(driver, CLEAR_SEARCH_X_BTN)
+		#clear_search_btn_click = id_click(driver, CLEAR_SEARCH_X_BTN) # old approach
+
+		# clear search result
+		try:
+			clear_field = id_click(driver, CLEAR_SEARCH_X_BTN)
+		except:
+			click_on_search_btn_in_head_bar = id_click(driver, SEARCH_BTN_HEAD_BAR)
+			time.sleep(0.3)
+			el_id(driver, SEARCH_BTN_HEAD_BAR).clear()
+			time.sleep(0.5)
+
+
 		click_on_search_btn_in_head_bar = id_click(driver, SEARCH_BTN_HEAD_BAR)
 		search_user_two = xpath_keys(driver, COLLAPSED_SEARCH_INPUT_FIELD, USER_2) #id_keys(driver, SEARCH_INPUT_FIELD, USER_2) 
 		click_on_suggested_item_in_search = xpath_click(driver, SELECT_SUGGESTED_ITEM_SEARCH_PROFILE) #id_click(driver, SEARCH_RESULT_ONE_ITEM_TEXT)
