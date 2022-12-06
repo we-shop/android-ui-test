@@ -172,17 +172,6 @@ def web_model(request):
 	return fixture
 
 
-		else:
-				print(f"Something wrong! Check test status {ERROR}") # may be skipped issue
-		
-
-		# mark test as passed/failed
-		selenium.execute_script(test_status)
-
-		selenium.quit() # marking test is finished for Browserstack
-		#selenium.close_app() # making app in background, because of pre-sets app restoring in fresh state o next launch
-		clear_data_from_temp_file() # clearing data in temp_data.txt
-
 
 # can be taken from caps.json
 # desired_caps_local = {
@@ -210,88 +199,3 @@ def web_model(request):
 #     #selenium.terminate_app('com.socialsuperstore') # put app in background
 #     selenium.close_app() # making app in background, because of pre-sets app restoring in fresh state o next launch
 #     clear_data_from_temp_file() # clearing data in temp_data.txt
-
-
-@pytest.hookimpl(tryfirst=True, hookwrapper=True)
-def pytest_runtest_makereport(item, call):
-		# extend pytest html plugin
-		pytest_html = item.config.pluginmanager.getplugin('html')
-
-
-		# execute all other hooks to obtain the report object
-		outcome = yield
-		report = outcome.get_result()
-
-		# set a report attribute for each phase of a call, which can
-		# be "setup", "call", "teardown"
-		setattr(item, "rep_" + report.when, report)    
-
-		extra = getattr(report, 'extra', [])
-
-		#_html = #f'<div><a href="{SESSION_URLS[-1]}">{SESSION_URLS[-1]}</a></div>'
-		_html = f'<div><p>BS REPORT public URL: <a href="{SESSION_URLS_PUBLIC[-1]}">{SESSION_URLS_PUBLIC[-1]}</a></p><div><p>BS peport private URL: <a href="{SESSION_URLS[-1]}">{SESSION_URLS[-1]}</a></p>'
-				
-				
-		if report.when == 'teardown':
-				extra.append(pytest_html.extras.html(_html))
-
-# @pytest.mark.optionalhook
-# def pytest_html_results_table_header(cells):
-#     #cells.append(html.th('LINK TO BS REPORT'))
-#     cells.insert(4, html.th("LINK TO BS REPORT"))
-
-# #@pytest.hookimpl(trylast=True)
-# @pytest.mark.optionalhook
-# def pytest_html_results_table_row(report, cells):
-#     #cells.append(html.td(BS_SESSION_URL))
-#     #pytest_html = item.config.pluginmanager.getplugin('html')
-
-#     if report.when == 'teardown':
-#         cells.insert(4, html.td(SESSION_URLS[-1]))
-#         #extra.append(pytest_html.extras.html(_html))
-
-
-
-#FIXTURES PAGE OBJECT
-@pytest.fixture()
-def login_model(request):
-	fixture = LoginPage(LOGIN_URL, LOGIN, PASSWORD, LOGIN_NEW, PASSWORD_NEW, LOGIN_INT, PASSWORD_INT, LOGIN_INT_NEW, PASSWORD_INT_NEW)
-	return fixture
-
-@pytest.fixture()
-def debug_model(request):
-	fixture = DebugPage()
-	return fixture
-
-@pytest.fixture()
-def search_model(request):
-	fixture = SearchPage()
-	return fixture
-
-@pytest.fixture()
-def product_page_model(request):
-	fixture = ProductDetailPage()
-	return fixture
-
-@pytest.fixture()
-def profile_model(request):
-	fixture = ProfilePage(LOGIN_URL, LOGIN, PASSWORD, LOGIN_NEW, PASSWORD_NEW, LOGIN_INT, PASSWORD_INT, LOGIN_INT_NEW, PASSWORD_INT_NEW)
-	return fixture
-
-@pytest.fixture()
-def post_model(request):
-	fixture = PostPage()
-	return fixture
-
-@pytest.fixture()
-def inbox_model(request):
-	fixture = InboxPage()
-	return fixture
-
-@pytest.fixture()
-def dashboard_model(request):
-	fixture = DashboardPage(LOGIN_URL, LOGIN, PASSWORD, LOGIN_NEW, PASSWORD_NEW, LOGIN_INT, PASSWORD_INT, LOGIN_INT_NEW, PASSWORD_INT_NEW)
-	return fixture
-
-
-
