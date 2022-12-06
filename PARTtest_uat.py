@@ -86,6 +86,7 @@ import os
 @pytest.mark.xfail #marked as should fail, because of bug
 def test_profile_info_pages(login_model, debug_model, profile_model, selenium):
 	debug_model.switch_to_uat(selenium)
+	assert 0 > 1
 	login_model.login_go_to_profile(selenium)
 	profile_model.info_pages_check(selenium)
 	profile_model.customer_support_page_check(selenium)
