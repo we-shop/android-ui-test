@@ -78,8 +78,8 @@ def selenium(request):
 				test_status = 'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"<tr>", "reason": "<trs>"}}'.replace("<tr>", "passed").replace("<trs>", f"All good! Test {request.node.rep_call.head_line} skipped of failed as EXPECTED!")
 
 		else:
-	print(request.node.rep_call.outcome)
-	print(f"Something wrong! Check test status {ERROR}") # may be unknown issue
+				print(request.node.rep_call.outcome)
+				print(f"Something wrong! Check test status {ERROR}") # may be unknown issue
 		
 
 		# mark test as passed/failed
