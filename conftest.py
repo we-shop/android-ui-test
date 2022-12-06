@@ -53,31 +53,31 @@ SESSION_URLS_PUBLIC = []
 # Customizing appium driver for Browserstack
 @pytest.fixture(autouse=True)
 def selenium(request):
-    #webdriver
-    selenium = webdriver.Remote(
-      command_executor=f'https://{BS_LOGIN}:{BS_SECRET}@hub-cloud.browserstack.com/wd/hub',
-      desired_capabilities=desired_cap)
+		#webdriver
+		selenium = webdriver.Remote(
+			command_executor=f'https://{BS_LOGIN}:{BS_SECRET}@hub-cloud.browserstack.com/wd/hub',
+			desired_capabilities=desired_cap)
 
 
-    get_session_data = selenium.execute_script('browserstack_executor: {"action": "getSessionDetails"}')
-    converted_session_data = json.loads(get_session_data)
+		get_session_data = selenium.execute_script('browserstack_executor: {"action": "getSessionDetails"}')
+		converted_session_data = json.loads(get_session_data)
 
-    
-    BS_SESSION_URL = f"https://app-automate.browserstack.com/dashboard/v2/builds/{converted_session_data['build_hashed_id']}/sessions/{converted_session_data['hashed_id']}"
-    BS_PUBLIC_SESSION_URL = converted_session_data["public_url"]
-    SESSION_URLS.append(BS_SESSION_URL)
-    SESSION_URLS_PUBLIC.append(BS_PUBLIC_SESSION_URL)
+		
+		BS_SESSION_URL = f"https://app-automate.browserstack.com/dashboard/v2/builds/{converted_session_data['build_hashed_id']}/sessions/{converted_session_data['hashed_id']}"
+		BS_PUBLIC_SESSION_URL = converted_session_data["public_url"]
+		SESSION_URLS.append(BS_SESSION_URL)
+		SESSION_URLS_PUBLIC.append(BS_PUBLIC_SESSION_URL)
 
-    yield selenium
+		yield selenium
 
-    if request.node.rep_call.outcome == "passed":
-        test_status = 'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"<tr>", "reason": "<trs>"}}'.replace("<tr>", "passed").replace("<trs>", f"All good! Test {request.node.rep_call.head_line} passed!")
-    elif request.node.rep_call.outcome == "failed":
-        test_status = 'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"<tr>", "reason": "<trs>"}}'.replace("<tr>", "failed").replace("<trs>", f"Test {request.node.rep_call.head_line} failed! Need to check!")
-    elif request.node.rep_call.outcome == "skipped":
-	test_status = 'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"<tr>", "reason": "<trs>"}}'.replace("<tr>", "passed").replace("<trs>", f"All good! Test {request.node.rep_call.head_line} skipped of failed as EXPECTED!")
+		if request.node.rep_call.outcome == "passed":
+				test_status = 'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"<tr>", "reason": "<trs>"}}'.replace("<tr>", "passed").replace("<trs>", f"All good! Test {request.node.rep_call.head_line} passed!")
+		elif request.node.rep_call.outcome == "failed":
+				test_status = 'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"<tr>", "reason": "<trs>"}}'.replace("<tr>", "failed").replace("<trs>", f"Test {request.node.rep_call.head_line} failed! Need to check!")
+		elif request.node.rep_call.outcome == "skipped":
+				test_status = 'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"<tr>", "reason": "<trs>"}}'.replace("<tr>", "passed").replace("<trs>", f"All good! Test {request.node.rep_call.head_line} skipped of failed as EXPECTED!")
 
-    else:
+		else:
 	print(request.node.rep_call.outcome)
 	print(f"Something wrong! Check test status {ERROR}") # may be unknown issue
 		
@@ -172,16 +172,16 @@ def web_model(request):
 	return fixture
 
 
-    else:
-        print(f"Something wrong! Check test status {ERROR}") # may be skipped issue
-    
+		else:
+				print(f"Something wrong! Check test status {ERROR}") # may be skipped issue
+		
 
-    # mark test as passed/failed
-    selenium.execute_script(test_status)
+		# mark test as passed/failed
+		selenium.execute_script(test_status)
 
-    selenium.quit() # marking test is finished for Browserstack
-    #selenium.close_app() # making app in background, because of pre-sets app restoring in fresh state o next launch
-    clear_data_from_temp_file() # clearing data in temp_data.txt
+		selenium.quit() # marking test is finished for Browserstack
+		#selenium.close_app() # making app in background, because of pre-sets app restoring in fresh state o next launch
+		clear_data_from_temp_file() # clearing data in temp_data.txt
 
 
 # can be taken from caps.json
@@ -214,26 +214,26 @@ def web_model(request):
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item, call):
-    # extend pytest html plugin
-    pytest_html = item.config.pluginmanager.getplugin('html')
+		# extend pytest html plugin
+		pytest_html = item.config.pluginmanager.getplugin('html')
 
 
-    # execute all other hooks to obtain the report object
-    outcome = yield
-    report = outcome.get_result()
+		# execute all other hooks to obtain the report object
+		outcome = yield
+		report = outcome.get_result()
 
-    # set a report attribute for each phase of a call, which can
-    # be "setup", "call", "teardown"
-    setattr(item, "rep_" + report.when, report)    
+		# set a report attribute for each phase of a call, which can
+		# be "setup", "call", "teardown"
+		setattr(item, "rep_" + report.when, report)    
 
-    extra = getattr(report, 'extra', [])
+		extra = getattr(report, 'extra', [])
 
-    #_html = #f'<div><a href="{SESSION_URLS[-1]}">{SESSION_URLS[-1]}</a></div>'
-    _html = f'<div><p>BS REPORT public URL: <a href="{SESSION_URLS_PUBLIC[-1]}">{SESSION_URLS_PUBLIC[-1]}</a></p><div><p>BS peport private URL: <a href="{SESSION_URLS[-1]}">{SESSION_URLS[-1]}</a></p>'
-        
-        
-    if report.when == 'teardown':
-        extra.append(pytest_html.extras.html(_html))
+		#_html = #f'<div><a href="{SESSION_URLS[-1]}">{SESSION_URLS[-1]}</a></div>'
+		_html = f'<div><p>BS REPORT public URL: <a href="{SESSION_URLS_PUBLIC[-1]}">{SESSION_URLS_PUBLIC[-1]}</a></p><div><p>BS peport private URL: <a href="{SESSION_URLS[-1]}">{SESSION_URLS[-1]}</a></p>'
+				
+				
+		if report.when == 'teardown':
+				extra.append(pytest_html.extras.html(_html))
 
 # @pytest.mark.optionalhook
 # def pytest_html_results_table_header(cells):
@@ -265,33 +265,33 @@ def debug_model(request):
 
 @pytest.fixture()
 def search_model(request):
-  fixture = SearchPage()
-  return fixture
+	fixture = SearchPage()
+	return fixture
 
 @pytest.fixture()
 def product_page_model(request):
-  fixture = ProductDetailPage()
-  return fixture
+	fixture = ProductDetailPage()
+	return fixture
 
 @pytest.fixture()
 def profile_model(request):
-  fixture = ProfilePage(LOGIN_URL, LOGIN, PASSWORD, LOGIN_NEW, PASSWORD_NEW, LOGIN_INT, PASSWORD_INT, LOGIN_INT_NEW, PASSWORD_INT_NEW)
-  return fixture
+	fixture = ProfilePage(LOGIN_URL, LOGIN, PASSWORD, LOGIN_NEW, PASSWORD_NEW, LOGIN_INT, PASSWORD_INT, LOGIN_INT_NEW, PASSWORD_INT_NEW)
+	return fixture
 
 @pytest.fixture()
 def post_model(request):
-  fixture = PostPage()
-  return fixture
+	fixture = PostPage()
+	return fixture
 
 @pytest.fixture()
 def inbox_model(request):
-  fixture = InboxPage()
-  return fixture
+	fixture = InboxPage()
+	return fixture
 
 @pytest.fixture()
 def dashboard_model(request):
-  fixture = DashboardPage(LOGIN_URL, LOGIN, PASSWORD, LOGIN_NEW, PASSWORD_NEW, LOGIN_INT, PASSWORD_INT, LOGIN_INT_NEW, PASSWORD_INT_NEW)
-  return fixture
+	fixture = DashboardPage(LOGIN_URL, LOGIN, PASSWORD, LOGIN_NEW, PASSWORD_NEW, LOGIN_INT, PASSWORD_INT, LOGIN_INT_NEW, PASSWORD_INT_NEW)
+	return fixture
 
 
 
