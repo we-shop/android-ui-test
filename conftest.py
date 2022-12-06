@@ -74,6 +74,104 @@ def selenium(request):
         test_status = 'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"<tr>", "reason": "<trs>"}}'.replace("<tr>", "passed").replace("<trs>", f"All good! Test {request.node.rep_call.head_line} passed!")
     elif request.node.rep_call.outcome == "failed":
         test_status = 'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"<tr>", "reason": "<trs>"}}'.replace("<tr>", "failed").replace("<trs>", f"Test {request.node.rep_call.head_line} failed! Need to check!")
+    elif request.node.rep_call.outcome == "skipped":
+	test_status = 'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"<tr>", "reason": "<trs>"}}'.replace("<tr>", "passed").replace("<trs>", f"All good! Test {request.node.rep_call.head_line} skipped of failed as EXPECTED!")
+
+    else:
+	print(request.node.rep_call.outcome)
+	print(f"Something wrong! Check test status {ERROR}") # may be unknown issue
+		
+
+		# mark test as passed/failed
+		selenium.execute_script(test_status)
+
+		selenium.quit() # marking test is finished for Browserstack
+		#selenium.close_app() # making app in background, because of pre-sets app restoring in fresh state o next launch
+		clear_data_from_temp_file() # clearing data in temp_data.txt
+
+# #Customizing appium driver (implicitly waits + app close/kill)
+# @pytest.fixture
+# def selenium(selenium):
+#     #selenium = webdriver.Remote(command_executor="http://hub-cloud.browserstack.com/wd/hub", desired_capabilities=desired_caps)
+#     selenium.implicitly_wait(7)
+#     yield selenium
+#     #selenium.remove_app(app_id='com.socialsuperstore') # uninstalling app
+#     #selenium.terminate_app('com.socialsuperstore') # put app in background
+#     selenium.close_app() # making app in background, because of pre-sets app restoring in fresh state o next launch
+#     clear_data_from_temp_file() # clearing data in temp_data.txt
+
+
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+		# extend pytest html plugin
+		pytest_html = item.config.pluginmanager.getplugin('html')
+
+
+		# execute all other hooks to obtain the report object
+		outcome = yield
+		report = outcome.get_result()
+
+		# set a report attribute for each phase of a call, which can
+		# be "setup", "call", "teardown"
+		setattr(item, "rep_" + report.when, report)    
+
+		extra = getattr(report, 'extra', [])
+
+		#_html = f'<div><a href="{SESSION_URLS[-1]}">{SESSION_URLS[-1]}</a></div>'
+		_html = f'<div><p>BS REPORT public URL: <a href="{SESSION_URLS_PUBLIC[-1]}">{SESSION_URLS_PUBLIC[-1]}</a></p><div><p>BS peport private URL: <a href="{SESSION_URLS[-1]}">{SESSION_URLS[-1]}</a></p>'
+				
+				
+		if report.when == 'teardown':
+				extra.append(pytest_html.extras.html(_html))
+				
+
+#FIXTURES PAGE OBJECT
+@pytest.fixture()
+def login_model(request):
+	fixture = LoginPage(LOGIN_URL, LOGIN, PASSWORD, LOGIN_NEW, PASSWORD_NEW, LOGIN_INT, PASSWORD_INT, LOGIN_INT_NEW, PASSWORD_INT_NEW)
+	return fixture
+
+@pytest.fixture()
+def debug_model(request):
+	fixture = DebugPage()
+	return fixture
+
+@pytest.fixture()
+def search_model(request):
+	fixture = SearchPage()
+	return fixture
+
+@pytest.fixture()
+def product_page_model(request):
+	fixture = ProductDetailPage()
+	return fixture
+
+@pytest.fixture()
+def profile_model(request):
+	fixture = ProfilePage(LOGIN_URL, LOGIN, PASSWORD, LOGIN_NEW, PASSWORD_NEW, LOGIN_INT, PASSWORD_INT, LOGIN_INT_NEW, PASSWORD_INT_NEW)
+	return fixture
+
+@pytest.fixture()
+def post_model(request):
+	fixture = PostPage()
+	return fixture
+
+@pytest.fixture()
+def inbox_model(request):
+	fixture = InboxPage()
+	return fixture
+
+@pytest.fixture()
+def dashboard_model(request):
+	fixture = DashboardPage(LOGIN_URL, LOGIN, PASSWORD, LOGIN_NEW, PASSWORD_NEW, LOGIN_INT, PASSWORD_INT, LOGIN_INT_NEW, PASSWORD_INT_NEW)
+	return fixture
+
+@pytest.fixture()
+def web_model(request):
+	fixture = WebPage(LOGIN_URL, LOGIN, PASSWORD, LOGIN_NEW, PASSWORD_NEW, LOGIN_INT, PASSWORD_INT, LOGIN_INT_NEW, PASSWORD_INT_NEW)
+	return fixture
+
+
     else:
         print(f"Something wrong! Check test status {ERROR}") # may be skipped issue
     
