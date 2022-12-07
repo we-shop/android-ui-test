@@ -99,6 +99,9 @@ class ProductDetailPage:
 
 		# checking if item was indeed added to correct wishlist
 		# Note: can't avoid try/except block, because of java error (stale element exception > unknown DOM issue)
+
+		long_wait_wishlists = elems_xpath(driver, WISHLIST_ITEMS_TITLE_LIST)
+
 		try:
 			list_of_all_wishlists = elems_xpath(driver, WISHLIST_ITEMS_TITLE_LIST)
 			click_on_wishlist_with_correct_name = [i.click() for i in list_of_all_wishlists if i.text == WISHLIST_NAME[0]]
@@ -108,6 +111,7 @@ class ProductDetailPage:
 		time.sleep(1) # obligatory
 		#print(GET_PRODUCT_NAME) # debug
 		#print("####") # debug
+		long_wait_lst_items = long_wait_el_xpath(driver, LIST_OF_ITEMS_INSIDE_WISHLIST)
 		list_of_all_items_inside_wishlist = elems_xpath(driver, LIST_OF_ITEMS_INSIDE_WISHLIST)
 
 		# try/except block to avoid unknown java issue
