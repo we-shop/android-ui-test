@@ -27,12 +27,12 @@ def test_search_request_and_clear_field(login_model, debug_model, search_model, 
 # 	search_model.search_product_and_open_detail_page(selenium)
 # 	product_page_model.add_product_to_wishlist(selenium)
 
-# 	# done 1
-# def test_add_product_to_wishlist_and_check_in_profile(login_model, debug_model, search_model, product_page_model, selenium):
-# 	debug_model.switch_to_uat(selenium)
-# 	login_model.login_only(selenium)
-# 	search_model.search_product_and_open_detail_page(selenium)
-# 	product_page_model.add_product_to_wishlist_and_check_in_profile(selenium)
+	# done 1
+def test_add_product_to_wishlist_and_check_in_profile(login_model, debug_model, search_model, product_page_model, selenium):
+	debug_model.switch_to_uat(selenium)
+	login_model.login_only(selenium)
+	search_model.search_product_and_open_detail_page(selenium)
+	product_page_model.add_product_to_wishlist_and_check_in_profile(selenium)
 
 # 	# done
 # def test_open_product_website(debug_model, login_model, product_page_model, selenium):
