@@ -42,7 +42,7 @@ class SearchPage:
 
 		#click_in_search_field = id_click(driver, SEARCH_INPUT_FIELD)
 		click_on_search_btn_in_head_bar_again = id_click(driver, SEARCH_BTN_HEAD_BAR)
-		#time.sleep(1)
+		time.sleep(0.4)
 
 		# asserting recent search name
 		recent_search_item_text = el_id(driver, RECENT_SEARCH_ITEM_TEXT).text
