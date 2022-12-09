@@ -112,6 +112,7 @@ class ProductDetailPage:
 		#print(GET_PRODUCT_NAME) # debug
 		#print("####") # debug
 		long_wait_lst_items = long_wait_el_xpath(driver, LIST_OF_ITEMS_INSIDE_WISHLIST)
+		time.sleep(0.3)
 		list_of_all_items_inside_wishlist = elems_xpath(driver, LIST_OF_ITEMS_INSIDE_WISHLIST)
 
 		# try/except block to avoid unknown java issue
