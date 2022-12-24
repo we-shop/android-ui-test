@@ -202,3 +202,7 @@ class LoginPage:
 		# verify login screen title (means that you are successfully logged out)
 		login_screen_title_text = el_id(driver, LOGIN_SCREEN_TITLE).text
 		assert login_screen_title_text == "This is how… WeShop."
+
+
+	def pass_registration_flow(self, driver):
+		pass

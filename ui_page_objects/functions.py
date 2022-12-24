@@ -265,7 +265,7 @@ def taking_you_to_win(driver):
 # long waits
 def long_wait_el_xpath(driver, locator):
 	try:
-		WebDriverWait(driver, 22).until(EC.presence_of_element_located((MobileBy.XPATH, locator)))
+		WebDriverWait(driver, 24).until(EC.presence_of_element_located((MobileBy.XPATH, locator)))
 		return driver.find_element(MobileBy.XPATH, locator)
 	except:
 		print(f"Element to find by XPATH: {locator} is not found!")
