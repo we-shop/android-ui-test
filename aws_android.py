@@ -97,12 +97,13 @@ def android_get_app_path():
 
 	#we-shop/Android/14208/&showversions=false
 	#get_direct = [i.key for i in s3.Bucket('ss-travis-ci').objects.filter(Prefix=sorted(android_lst)[-1])][0] # debug
-
+	getting_id_of_android_build = str(max([int(re.search(r'/(\d+)/', i).group(1)) for i in android_lst]))
 	# get direct android path, looks like this "we-shop/Android/16143/build.aab"
-	get_direct_path_android = sorted(android_lst)[-1]
+	# get_direct_path_android = sorted(android_lst)[-1] # old
+	get_direct_path_android = f"we-shop/Android/{getting_id_of_android_build}/feature_base-qa.aab"
 
 	# get build id, looks like this "9143"
-	getting_id_of_android_build = re.findall("\\d+", get_direct_path_android)[0]
+	# getting_id_of_android_build = re.findall("\\d+", get_direct_path_android)[0] # old
 
 	return get_direct_path_android, getting_id_of_android_build
 
