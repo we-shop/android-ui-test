@@ -12,10 +12,10 @@ pp = pprint.PrettyPrinter(indent=4)
 ########################################
 # get apps from s3 bucket
 ########################################
-# Local credentials
-# ACCESS_KEY = "xtest"
-# SECRET_KEY = "xtest"
-# SESSION_TOKEN = "xtest"
+# # Local credentials
+# ACCESS_KEY = "text"
+# SECRET_KEY = "text"
+# SESSION_TOKEN = "text"
 
 # AWS credentials
 # ACCESS_KEY = os.getenv("ACCESS_KEY_ID")
@@ -219,4 +219,4 @@ generate_json(check_android_app_tags(LATEST_APP_PATH_AND_ID[0], get_tag_of_certa
 # Debug just download certain app
 #################################
 
-#download_android_app("we-shop/Android/14796/feature_base-qa.aab")
+#download_android_app("we-shop/Android/15424/feature_base-qa.aab")

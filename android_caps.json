@@ -4,9 +4,9 @@
     "project": "Android Weshop",
     "build": "browserstack-Android",
     "name": "Android test",
-    "app_url": "test",
+    "app_url": "bs://d3255c760cc7c5c9c3f6767af68e2cd4a81c3d6e",
     "autoGrantPermissions": true,
     "appium:unicodeKeyboard": true,
     "appium:noReset:": false,
-    "appium:resetKeyboard": true,
+    "appium:resetKeyboard": true
 }
