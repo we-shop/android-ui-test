@@ -37,7 +37,7 @@ class SearchPage:
 		except:
 			click_on_search_btn_in_head_bar = id_click(driver, SEARCH_BTN_HEAD_BAR)
 			time.sleep(0.3)
-			el_xpath(driver, SEARCH_HEAD_INPUT_CORE_EL).clear()
+			el_xpath(driver, COLLAPSED_SEARCH_INPUT_FIELD).clear()
 			time.sleep(0.5)
 
 		#click_in_search_field = id_click(driver, SEARCH_INPUT_FIELD)

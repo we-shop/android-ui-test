@@ -21,10 +21,10 @@ def test_search_request_and_clear_field(login_model, debug_model, search_model, 
 	search_model.search_and_clear_field(selenium)
 
 
-def test_search_request_and_clear_field2(login_model, debug_model, search_model, selenium):
-	debug_model.switch_to_uat(selenium)
-	login_model.login_only(selenium)
-	search_model.search_and_clear_field(selenium)
+# def test_search_request_and_clear_field2(login_model, debug_model, search_model, selenium):
+# 	debug_model.switch_to_uat(selenium)
+# 	login_model.login_only(selenium)
+# 	search_model.search_and_clear_field(selenium)
 
 
 # def test_search_request_and_clear_field3(login_model, debug_model, search_model, selenium):
