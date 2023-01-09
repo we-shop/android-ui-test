@@ -91,18 +91,6 @@ def test_profile_follow_few_users_using_search(login_model, debug_model, profile
 	profile_model.follow_few_users(selenium)
 
 
-def test_profile_follow_few_users_using_search2(login_model, debug_model, profile_model, selenium):
-	debug_model.switch_to_uat(selenium)
-	login_model.login_go_to_profile(selenium)
-	profile_model.follow_few_users(selenium)	
-
-
-def test_profile_follow_few_users_using_search3(login_model, debug_model, profile_model, selenium):
-	debug_model.switch_to_uat(selenium)
-	login_model.login_go_to_profile(selenium)
-	profile_model.follow_few_users(selenium)		
-
-
 # 	# done
 # def test_profile_info_edit(login_model, debug_model, profile_model, selenium):
 # 	debug_model.switch_to_uat(selenium)

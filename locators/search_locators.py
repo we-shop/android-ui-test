@@ -9,6 +9,7 @@ SELECT_SUGGESTED_ITEM_SEARCH_ONE_ITEM = "//android.view.ViewGroup/androidx.recyc
 
 SELECT_SUGGESTED_ITEM_SEARCH_PROFILE = "//androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.widget.TextView[1]"
 CLEAR_SEARCH_X_BTN ="com.socialsuperstore:id/searchClear"
+SEARCH_HEAD_INPUT_CORE_EL = "//android.widget.LinearLayout/android.widget.FrameLayout/android.widget.EditText"
 FIRST_ITEM_NAME_SEARCH = "//*[contains(@resource-id, 'productTitle')]"
 CLEAR_SEARCH_BTN = "com.socialsuperstore:id/searchClear"
 RECENT_SEARCH_ITEM_TEXT = "com.socialsuperstore:id/recentSearchItemText"
